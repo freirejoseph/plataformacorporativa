@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Accesos Menues - Backend",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/apps/accesos-menues/backend/main.py",
+      "envFile": "${workspaceFolder}/.env",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}

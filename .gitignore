@@ -1,0 +1,18 @@
+# Secrets and runtime artifacts
+.env
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local IDE and generated artifacts
+.vscode-test/
+
+# Large runtime data and local state
+portal-data/
+logs/
+evidence/
+RevisionesQA/*.log
