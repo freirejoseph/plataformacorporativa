@@ -1,0 +1,666 @@
+/* ============================================================
+   SKILL_ACCESOSMENUES.css
+   Portal de Administración de Usuarios, Menús y Accesos
+   Tema: Dark Enterprise Industrial
+   ============================================================ */
+
+:root {
+  --color-bg-main: #06111d;
+  --color-bg-sidebar: #071827;
+  --color-bg-header: #071421;
+  --color-bg-card: #0d2133;
+  --color-bg-card-soft: #10283d;
+  --color-bg-input: #0a1c2d;
+
+  --color-border: rgba(120, 170, 210, 0.18);
+  --color-border-strong: rgba(80, 160, 255, 0.35);
+
+  --color-text-main: #f3f7fb;
+  --color-text-secondary: #a9bbcc;
+  --color-text-muted: #6f8396;
+
+  --color-primary: #0d6efd;
+  --color-primary-hover: #2b84ff;
+  --color-cyan: #14d8ff;
+  --color-green: #22c55e;
+  --color-yellow: #f6b313;
+  --color-orange: #fb923c;
+  --color-red: #ef4444;
+  --color-purple: #a855f7;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  --shadow-card: 0 12px 30px rgba(0, 0, 0, 0.26);
+  --shadow-glow-blue: 0 0 22px rgba(13, 110, 253, 0.22);
+
+  --sidebar-width: 270px;
+  --header-height: 76px;
+  --transition-fast: 0.18s ease-in-out;
+
+  --font-main: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top right, rgba(14, 80, 130, 0.22), transparent 36%),
+              linear-gradient(135deg, #04101b 0%, #061827 45%, #07111d 100%);
+  color: var(--color-text-main);
+  font-family: var(--font-main);
+}
+
+/* ============================================================
+   Layout principal
+   ============================================================ */
+
+.LayoutAccesosMenues {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  min-height: 100vh;
+}
+
+.PanelContenidoPrincipal {
+  padding: 18px 22px 16px 22px;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   Menú lateral
+   ============================================================ */
+
+.MenuLateralPrincipal {
+  width: var(--sidebar-width);
+  background: linear-gradient(180deg, #06192a 0%, #04101b 100%);
+  border-right: 1px solid var(--color-border);
+  padding: 18px 18px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.LogoSysproERP {
+  width: 205px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 6px;
+}
+
+.MenuSeccionTitulo {
+  margin: 12px 0 6px 4px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.MenuItem,
+.MenuDashboard,
+.MenuUsuariosAccesos,
+.MenuRolesPermisos,
+.MenuGruposSeguridad,
+.MenuPortalesModulos,
+.MenuModuloSysproERP,
+.MenuModuloOdooRRHH,
+.MenuTablerosInteractivos,
+.MenuIntegraciones,
+.MenuDocumentos,
+.MenuParametrosGenerales,
+.MenuNotificaciones,
+.MenuRespaldos,
+.MenuLicencias {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 42px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.MenuItem:hover,
+.MenuDashboard:hover,
+.MenuUsuariosAccesos:hover,
+.MenuRolesPermisos:hover,
+.MenuGruposSeguridad:hover,
+.MenuPortalesModulos:hover {
+  background: rgba(13, 110, 253, 0.13);
+  color: var(--color-text-main);
+  transform: translateX(2px);
+}
+
+.MenuItemActivo,
+.MenuUsuariosAccesos.activo,
+.MenuDashboard.activo {
+  background: linear-gradient(135deg, #0d6efd 0%, #074aa6 100%);
+  color: #ffffff;
+  box-shadow: var(--shadow-glow-blue);
+}
+
+.LogoPesaModulo {
+  margin-top: auto;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.LogoPesaModulo img {
+  width: 92px;
+  height: 92px;
+  object-fit: contain;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 16px rgba(20, 216, 255, 0.34));
+}
+
+.BotonCerrarSesion {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  cursor: pointer;
+}
+
+.BotonCerrarSesion:hover {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.45);
+}
+
+/* ============================================================
+   Header superior
+   ============================================================ */
+
+.HeaderAdministracionAccesos {
+  min-height: var(--header-height);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.BotonColapsarMenu {
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-main);
+  cursor: pointer;
+}
+
+.TituloAdministracionAccesos {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.SubtituloAdministracionAccesos {
+  margin: 3px 0 0 0;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.BuscadorGlobalAccesos {
+  width: min(100%, 430px);
+  height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-input);
+  color: var(--color-text-main);
+  padding: 0 16px;
+  outline: none;
+}
+
+.BuscadorGlobalAccesos:focus {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-glow-blue);
+}
+
+.HeaderAccionesUsuario {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.IconoNotificacionesAccesos,
+.IconoSeguridadHeader,
+.IconoAyudaHeader {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: var(--color-text-main);
+}
+
+.BadgeNotificaciones {
+  position: absolute;
+  top: -3px;
+  right: -2px;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-red);
+  color: #fff;
+  font-size: 11px;
+  display: grid;
+  place-items: center;
+}
+
+.AvatarUsuarioActivo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+}
+
+.TextoUsuarioActivo {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.TextoCargoUsuarioActivo {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.LogoAccesosDigitalesHeader {
+  width: 88px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ============================================================
+   KPIs administrativos
+   ============================================================ */
+
+.PanelKPIAdministracionAccesos {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(150px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.KPIUsuariosTotales,
+.KPIRolesCreados,
+.KPIModulosDisponibles,
+.KPISesionesActivas,
+.KPIPortalesConectados,
+.KPIFechaHoraSistema {
+  min-height: 132px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(180deg, rgba(18, 45, 68, 0.94), rgba(9, 28, 45, 0.94));
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.KPIIcono {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 8px;
+}
+
+.KPIIcono.azul { background: rgba(13, 110, 253, 0.18); color: var(--color-primary); }
+.KPIIcono.verde { background: rgba(34, 197, 94, 0.18); color: var(--color-green); }
+.KPIIcono.morado { background: rgba(168, 85, 247, 0.18); color: var(--color-purple); }
+.KPIIcono.naranja { background: rgba(251, 146, 60, 0.18); color: var(--color-orange); }
+.KPIIcono.cyan { background: rgba(20, 216, 255, 0.18); color: var(--color-cyan); }
+
+.KPIValor {
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 800;
+  color: var(--color-text-main);
+}
+
+.KPITitulo {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.KPIDetalle {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.KPITendenciaPositiva { color: var(--color-green); }
+.KPITendenciaNegativa { color: var(--color-red); }
+
+/* ============================================================
+   Paneles y cards
+   ============================================================ */
+
+.GridDashboardAccesos {
+  display: grid;
+  grid-template-columns: 1.45fr 0.75fr 1.35fr;
+  gap: 12px;
+}
+
+.PanelUsuariosSistema,
+.PanelRolesSistema,
+.PanelMatrizPermisosPortalModulo,
+.PanelActividadReciente,
+.PanelAccionesRapidas {
+  background: linear-gradient(180deg, rgba(16, 40, 61, 0.96), rgba(8, 26, 42, 0.96));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 16px;
+}
+
+.PanelActividadReciente {
+  margin-top: 12px;
+}
+
+.PanelTitulo {
+  margin: 0 0 14px 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.PanelToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.InputBuscarUsuario,
+.SelectEstadoUsuario {
+  height: 40px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-input);
+  color: var(--color-text-main);
+  padding: 0 12px;
+  outline: none;
+}
+
+.BotonNuevoUsuario,
+.BotonNuevoRol,
+.BotonPrimario {
+  min-height: 38px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, #0d6efd, #084aa7);
+  color: #fff;
+  padding: 0 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.BotonNuevoUsuario:hover,
+.BotonNuevoRol:hover,
+.BotonPrimario:hover {
+  background: linear-gradient(135deg, var(--color-primary-hover), #0d6efd);
+}
+
+/* ============================================================
+   Tablas
+   ============================================================ */
+
+.GridUsuariosSistema,
+.GridActividadReciente,
+.GridMatrizPermisos {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.GridUsuariosSistema th,
+.GridActividadReciente th,
+.GridMatrizPermisos th {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  text-align: left;
+  padding: 11px 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.GridUsuariosSistema td,
+.GridActividadReciente td,
+.GridMatrizPermisos td {
+  color: var(--color-text-main);
+  padding: 11px 8px;
+  border-bottom: 1px solid rgba(120, 170, 210, 0.09);
+}
+
+.GridUsuariosSistema tr:hover,
+.GridActividadReciente tr:hover,
+.GridMatrizPermisos tr:hover {
+  background: rgba(13, 110, 253, 0.07);
+}
+
+.AvatarTablaUsuario {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.TagRol,
+.TagPortal,
+.TagEstadoActivo,
+.TagEstadoInactivo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  border-radius: 5px;
+  padding: 2px 7px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.TagRol { background: rgba(168, 85, 247, 0.18); color: #d8b4fe; }
+.TagPortal { background: rgba(34, 197, 94, 0.16); color: #86efac; }
+.TagEstadoActivo { background: rgba(34, 197, 94, 0.16); color: #86efac; }
+.TagEstadoInactivo { background: rgba(239, 68, 68, 0.16); color: #fca5a5; }
+
+.EstadoPermisoPermitido,
+.EstadoPermisoSoloLectura,
+.EstadoPermisoDenegado {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.EstadoPermisoPermitido {
+  border: 1px solid var(--color-green);
+  color: var(--color-green);
+}
+
+.EstadoPermisoSoloLectura {
+  border: 1px solid var(--color-yellow);
+  color: var(--color-yellow);
+}
+
+.EstadoPermisoDenegado {
+  border: 1px solid var(--color-red);
+  color: var(--color-red);
+}
+
+/* ============================================================
+   Roles
+   ============================================================ */
+
+.ListaRolesSistema {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ItemRolSistema {
+  display: grid;
+  grid-template-columns: 38px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(120, 170, 210, 0.08);
+}
+
+.IconoRolSistema {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  background: rgba(13, 110, 253, 0.15);
+  color: var(--color-primary);
+}
+
+.NombreRolSistema {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.DescripcionRolSistema {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.ContadorUsuariosRol {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+/* ============================================================
+   Acciones rápidas
+   ============================================================ */
+
+.GridAccionesRapidas {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.BotonCrearUsuario,
+.BotonCrearRol,
+.BotonAsignarPermisos,
+.BotonAsignarAccesosPortal,
+.BotonImportarUsuarios,
+.BotonAdministrarGrupos,
+.BotonPoliticasAcceso,
+.BotonAuditoria,
+.BotonRespaldos,
+.BotonConfiguracion {
+  min-height: 96px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-text-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.BotonCrearUsuario:hover,
+.BotonCrearRol:hover,
+.BotonAsignarPermisos:hover,
+.BotonAsignarAccesosPortal:hover,
+.BotonImportarUsuarios:hover,
+.BotonAdministrarGrupos:hover,
+.BotonPoliticasAcceso:hover,
+.BotonAuditoria:hover,
+.BotonRespaldos:hover,
+.BotonConfiguracion:hover {
+  border-color: var(--color-border-strong);
+  background: rgba(13, 110, 253, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+
+.FooterSistemaAccesos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  margin-top: 12px;
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+.IndicadorEstadoSistema {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-green);
+  display: inline-block;
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.65);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 1400px) {
+  .PanelKPIAdministracionAccesos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .GridDashboardAccesos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .LayoutAccesosMenues {
+    grid-template-columns: 1fr;
+  }
+
+  .MenuLateralPrincipal {
+    display: none;
+  }
+
+  .HeaderAdministracionAccesos {
+    grid-template-columns: 1fr;
+  }
+
+  .PanelKPIAdministracionAccesos {
+    grid-template-columns: 1fr;
+  }
+
+  .GridAccionesRapidas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

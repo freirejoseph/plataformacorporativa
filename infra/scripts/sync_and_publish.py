@@ -14,7 +14,6 @@ import paramiko
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_REMOTE_ROOT = "/home/plataformacorporativa"
-FALLBACK_REMOTE_ROOT = "/home/joseph/plataformacorporativa"
 EXCLUDE_DIRS = {
     ".git",
     ".venv",
@@ -157,7 +156,6 @@ def main() -> int:
     parser.add_argument("--push", action="store_true", help="Commit and push Git changes after sync.")
     parser.add_argument("--message", default="Auto sync plataformacorporativa", help="Git commit message.")
     parser.add_argument("--remote-root", default=DEFAULT_REMOTE_ROOT, help="Primary Ubuntu sync root.")
-    parser.add_argument("--fallback-root", default=FALLBACK_REMOTE_ROOT, help="Fallback Ubuntu sync root.")
     args = parser.parse_args()
 
     env = load_env(REPO_ROOT / ".env")
@@ -166,29 +164,17 @@ def main() -> int:
     def run_once() -> None:
         transport, sftp = connect_sftp(host, user, password, port)
         try:
-            roots = [args.remote_root]
-            if args.fallback_root and args.fallback_root != args.remote_root:
-                roots.append(args.fallback_root)
-
-            last_error: Exception | None = None
-            for remote_root in roots:
-                try:
-                    synced, errors = sync_tree(REPO_ROOT, remote_root, sftp)
-                    print(f"REMOTE_ROOT={remote_root}")
-                    print(f"SYNCED={synced}")
-                    if errors:
-                        print("ERRORS:")
-                        for error in errors:
-                            print(f"- {error}")
-                    if args.push:
-                        commits, pushes = git_publish(args.message)
-                        print(f"GIT_COMMIT={commits}")
-                        print(f"GIT_PUSH={pushes}")
-                    return
-                except Exception as exc:  # pragma: no cover - remote runtime only
-                    last_error = exc
-                    continue
-            raise RuntimeError(f"Sync failed for all roots: {last_error}")
+            synced, errors = sync_tree(REPO_ROOT, args.remote_root, sftp)
+            print(f"REMOTE_ROOT={args.remote_root}")
+            print(f"SYNCED={synced}")
+            if errors:
+                print("ERRORS:")
+                for error in errors:
+                    print(f"- {error}")
+            if args.push:
+                commits, pushes = git_publish(args.message)
+                print(f"GIT_COMMIT={commits}")
+                print(f"GIT_PUSH={pushes}")
         finally:
             sftp.close()
             transport.close()
@@ -204,4 +190,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-

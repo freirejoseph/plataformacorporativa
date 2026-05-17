@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accesos y Menues</title>
+  <link rel="stylesheet" href="/assets/SKILL_ACCESOSMENUES.css">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="AccesosMenuesApp">
+  <div class="LayoutAccesosMenues">
+    <aside class="MenuLateralPrincipal">
+      <div class="BrandBlockSyspro">
+        <div class="BrandMarkSyspro">
+          <span class="BrandCube"></span>
+        </div>
+        <div class="BrandTextSyspro">
+          <div class="BrandTitleSyspro">SYSPRO<span>ERP</span></div>
+          <div class="BrandSubtitleSyspro">Simplifying your Success</div>
+        </div>
+      </div>
+
+      <div class="MenuSeccionTitulo">INICIO</div>
+      <div class="MenuItem MenuDashboard activo"><span class="MenuItemIcon">⌂</span>Dashboard</div>
+
+      <div class="MenuSeccionTitulo">ADMINISTRACIÓN</div>
+      <div class="MenuItem MenuUsuariosAccesos activo"><span class="MenuItemIcon">◫</span>Usuarios y Accesos</div>
+      <div class="MenuItem MenuRolesPermisos"><span class="MenuItemIcon">⚿</span>Roles y Permisos</div>
+      <div class="MenuItem MenuGruposSeguridad"><span class="MenuItemIcon">◔</span>Grupos</div>
+      <div class="MenuItem MenuPortalesModulos"><span class="MenuItemIcon">▣</span>Portales y Módulos</div>
+      <div class="MenuItem MenuSeguridad"><span class="MenuItemIcon">◈</span>Seguridad</div>
+      <div class="MenuItem MenuPoliticasAcceso"><span class="MenuItemIcon">⌘</span>Políticas de Acceso</div>
+      <div class="MenuItem MenuAuditoria"><span class="MenuItemIcon">☰</span>Auditoría</div>
+
+      <div class="MenuSeccionTitulo">MÓDULOS DEL SISTEMA</div>
+      <div class="MenuItem MenuModuloSysproERP"><span class="MenuItemIcon">▣</span>SYSPRO ERP</div>
+      <div class="MenuItem MenuModuloOdooRRHH"><span class="MenuItemIcon">odoo</span>Odoo RRHH</div>
+      <div class="MenuItem MenuTablerosInteractivos"><span class="MenuItemIcon">◌</span>Tableros Interactivos</div>
+      <div class="MenuItem MenuIntegraciones"><span class="MenuItemIcon">⇄</span>Integraciones</div>
+      <div class="MenuItem MenuDocumentos"><span class="MenuItemIcon">▤</span>Documentos</div>
+
+      <div class="MenuSeccionTitulo">CONFIGURACIÓN</div>
+      <div class="MenuItem MenuParametrosGenerales"><span class="MenuItemIcon">⚙</span>Parámetros Generales</div>
+      <div class="MenuItem MenuNotificaciones"><span class="MenuItemIcon">⚐</span>Notificaciones</div>
+      <div class="MenuItem MenuRespaldos"><span class="MenuItemIcon">⟲</span>Respaldo y Recuperación</div>
+      <div class="MenuItem MenuLicencias"><span class="MenuItemIcon">⌁</span>Licencias</div>
+
+      <div class="LogoPesaModulo">
+        <div class="PesaOrbe"></div>
+        <div class="PesaBrand">PESA</div>
+      </div>
+      <button class="BotonCerrarSesion" type="button" id="openLoginBtn">Cerrar sesión</button>
+    </aside>
+
+    <section class="PanelContenidoPrincipal">
+      <header class="HeaderAdministracionAccesos">
+        <div class="HeaderBranding">
+          <div class="TituloAdministracionAccesos">Administración de Usuarios y Accesos</div>
+          <div class="SubtituloAdministracionAccesos">Gestione usuarios, roles, permisos y accesos a portales corporativos</div>
+        </div>
+        <div class="HeaderSearchWrap">
+          <input class="BuscadorGlobalAccesos" id="globalSearch" type="search" placeholder="Buscar usuarios, roles, portales, permisos..." autocomplete="off">
+        </div>
+        <div class="HeaderAccionesUsuario">
+          <button class="HeaderIconButton" id="notificationsBtn" type="button" aria-label="Notificaciones">🔔<span class="BadgeNotificaciones">8</span></button>
+          <button class="HeaderIconButton" id="securityBtn" type="button" aria-label="Seguridad">🛡</button>
+          <button class="HeaderIconButton" type="button" aria-label="Ayuda">?</button>
+          <div class="HeaderUserBlock">
+            <img class="AvatarUsuarioActivo" src="https://dummyimage.com/96x96/0d6efd/ffffff&text=J" alt="Joseph">
+            <div>
+              <div class="TextoUsuarioActivo">Joseph</div>
+              <div class="TextoCargoUsuarioActivo">Gerente</div>
+            </div>
+            <span class="HeaderChevron">▾</span>
+          </div>
+          <div class="HeaderBrandAccesos">
+            <div class="HeaderBrandAccesosTitle">ACCESOS</div>
+            <div class="HeaderBrandAccesosSubtitle">DIGITALES</div>
+          </div>
+        </div>
+      </header>
+
+      <main class="DashboardShell">
+        <section class="PanelKPIAdministracionAccesos" id="kpiGrid"></section>
+
+        <section class="GridDashboardAccesos GridDashboardPrincipal">
+          <article class="PanelUsuariosSistema">
+            <div class="PanelToolbar">
+              <div>
+                <h2 class="PanelTitulo">Usuarios del sistema</h2>
+                <div class="SubtituloAdministracionAccesos">Base local SQLite, permisos por rol y trazabilidad.</div>
+              </div>
+              <div class="ToolbarActions">
+                <input class="PanelSearchInput" id="userPanelSearch" type="search" placeholder="Buscar usuario...">
+                <select class="PanelStateSelect" id="userStateFilter">
+                  <option value="TODOS">Estado: Todos</option>
+                  <option value="ACTIVO">Estado: Activo</option>
+                  <option value="INACTIVO">Estado: Inactivo</option>
+                </select>
+                <button class="BotonFiltroUsuarios" type="button" aria-label="Filtrar">⏷</button>
+                <button class="BotonPrimario" id="createUserBtn" type="button">+ Nuevo usuario</button>
+              </div>
+            </div>
+            <div class="TableWrap">
+              <table class="GridUsuariosSistema">
+                <thead>
+                  <tr>
+                    <th>Usuario</th>
+                    <th>Correo electrónico</th>
+                    <th>Rol</th>
+                    <th>Portal asignado</th>
+                    <th>Estado</th>
+                    <th>Último acceso</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="usersTable"></tbody>
+              </table>
+            </div>
+            <div class="FooterPanelLink">Mostrando 1 a 6 de 156 usuarios</div>
+          </article>
+
+          <article class="PanelRolesSistema">
+            <div class="PanelToolbar">
+              <div>
+                <h2 class="PanelTitulo">Roles del sistema</h2>
+                <div class="SubtituloAdministracionAccesos">Administración y configuración</div>
+              </div>
+              <button class="BotonPrimario" id="createRoleBtn" type="button">+ Nuevo rol</button>
+            </div>
+            <div class="ListaRolesSistema" id="rolesList"></div>
+            <button class="BotonTextoInferior" type="button">Ver todos los roles</button>
+          </article>
+
+          <article class="PanelMatrizPermisosPortalModulo">
+            <div class="PanelToolbar">
+              <div>
+                <h2 class="PanelTitulo">Matriz de Permisos por Portal y Módulo</h2>
+                <div class="SubtituloAdministracionAccesos">Permisos cruzados por área corporativa</div>
+              </div>
+            </div>
+            <div class="PermissionLegend">
+              <span><i class="LegendDot permitido"></i>Permitido</span>
+              <span><i class="LegendDot lectura"></i>Solo lectura</span>
+              <span><i class="LegendDot denegado"></i>Denegado</span>
+            </div>
+            <div class="TableWrap">
+              <table class="GridMatrizPermisos">
+                <thead>
+                  <tr id="permissionHeaders"></tr>
+                </thead>
+                <tbody id="permissionMatrix"></tbody>
+              </table>
+            </div>
+            <button class="BotonTextoInferior" type="button">Ver matriz completa de permisos</button>
+          </article>
+        </section>
+
+        <section class="PanelActividadReciente">
+          <div class="PanelToolbar">
+            <div>
+              <h2 class="PanelTitulo">Actividad reciente</h2>
+              <div class="SubtituloAdministracionAccesos">Auditoría de acceso, cambios y acciones administrativas.</div>
+            </div>
+            <button class="BotonPrimario" type="button">Ver historial completo</button>
+          </div>
+          <div class="TableWrap">
+            <table class="GridActividadReciente">
+              <thead>
+                <tr>
+                  <th>Fecha y hora</th>
+                  <th>Usuario</th>
+                  <th>Acción</th>
+                  <th>Detalle</th>
+                  <th>IP</th>
+                </tr>
+              </thead>
+              <tbody id="activityTable"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="PanelAccionesRapidas">
+          <div class="PanelToolbar">
+            <div>
+              <h2 class="PanelTitulo">Acciones rápidas</h2>
+              <div class="SubtituloAdministracionAccesos">Atajos para las tareas principales del tablero madre.</div>
+            </div>
+          </div>
+          <div class="GridAccionesRapidas" id="quickActions"></div>
+        </section>
+      </main>
+
+      <footer class="FooterSistemaAccesos">
+        <div>&copy; 2026 Plataforma Corporativa. Todos los derechos reservados.</div>
+        <div><span class="IndicadorEstadoSistema"></span> Usuario: Joseph | Rol: Gerente</div>
+      </footer>
+    </section>
+  </div>
+
+  <dialog class="PortalDialog" id="loginDialog">
+    <form class="DialogCard" id="loginForm" method="dialog">
+      <div class="DialogHeader">
+        <div>
+          <div class="DialogTitle">Inicio de sesión</div>
+          <div class="DialogSubtitle">Accede al portal madre para guardar cambios.</div>
+        </div>
+        <button class="DialogClose" type="button" data-close-dialog>✕</button>
+      </div>
+      <label class="DialogField">
+        <span>Correo</span>
+        <input name="correo" type="email" maxlength="120" required>
+      </label>
+      <label class="DialogField">
+        <span>Password</span>
+        <input name="password" type="password" maxlength="128" required>
+      </label>
+      <button class="BotonPrimario" type="submit">Iniciar sesión</button>
+    </form>
+  </dialog>
+
+  <dialog class="PortalDialog" id="userDialog">
+    <form class="DialogCard" id="userForm" method="dialog">
+      <div class="DialogHeader">
+        <div>
+          <div class="DialogTitle">Crear usuario</div>
+          <div class="DialogSubtitle">Alta directa del usuario para el portal madre.</div>
+        </div>
+        <button class="DialogClose" type="button" data-close-dialog>✕</button>
+      </div>
+      <label class="DialogField">
+        <span>Nombre</span>
+        <input name="nombre" type="text" minlength="2" maxlength="120" required>
+      </label>
+      <label class="DialogField">
+        <span>Correo</span>
+        <input name="correo" type="email" maxlength="120" required>
+      </label>
+      <label class="DialogField">
+        <span>Cargo</span>
+        <input name="cargo" type="text" maxlength="120" placeholder="Gerente, Analista, etc.">
+      </label>
+      <label class="DialogField">
+        <span>Estado</span>
+        <select name="estado">
+          <option value="ACTIVO">ACTIVO</option>
+          <option value="INACTIVO">INACTIVO</option>
+        </select>
+      </label>
+      <button class="BotonPrimario" type="submit">Guardar usuario</button>
+    </form>
+  </dialog>
+
+  <dialog class="PortalDialog" id="roleDialog">
+    <form class="DialogCard" id="roleForm" method="dialog">
+      <div class="DialogHeader">
+        <div>
+          <div class="DialogTitle">Crear rol</div>
+          <div class="DialogSubtitle">Define un perfil de acceso para el portal madre.</div>
+        </div>
+        <button class="DialogClose" type="button" data-close-dialog>✕</button>
+      </div>
+      <label class="DialogField">
+        <span>Código</span>
+        <input name="codigo" type="text" minlength="2" maxlength="50" pattern="[A-Z0-9_]+" required>
+      </label>
+      <label class="DialogField">
+        <span>Nombre</span>
+        <input name="nombre" type="text" minlength="2" maxlength="120" required>
+      </label>
+      <label class="DialogField">
+        <span>Descripción</span>
+        <input name="descripcion" type="text" maxlength="255">
+      </label>
+      <label class="DialogField">
+        <span>Estado</span>
+        <select name="estado">
+          <option value="ACTIVO">ACTIVO</option>
+          <option value="INACTIVO">INACTIVO</option>
+        </select>
+      </label>
+      <button class="BotonPrimario" type="submit">Guardar rol</button>
+    </form>
+  </dialog>
+
+  <dialog class="PortalDialog" id="groupDialog">
+    <form class="DialogCard" id="groupForm" method="dialog">
+      <div class="DialogHeader">
+        <div>
+          <div class="DialogTitle">Crear grupo</div>
+          <div class="DialogSubtitle">Agrupa usuarios para permisos compartidos.</div>
+        </div>
+        <button class="DialogClose" type="button" data-close-dialog>✕</button>
+      </div>
+      <label class="DialogField">
+        <span>Código</span>
+        <input name="codigo" type="text" minlength="2" maxlength="50" pattern="[A-Z0-9_]+" required>
+      </label>
+      <label class="DialogField">
+        <span>Nombre</span>
+        <input name="nombre" type="text" minlength="2" maxlength="120" required>
+      </label>
+      <label class="DialogField">
+        <span>Descripción</span>
+        <input name="descripcion" type="text" maxlength="255">
+      </label>
+      <label class="DialogField">
+        <span>Estado</span>
+        <select name="estado">
+          <option value="ACTIVO">ACTIVO</option>
+          <option value="INACTIVO">INACTIVO</option>
+        </select>
+      </label>
+      <button class="BotonPrimario" type="submit">Guardar grupo</button>
+    </form>
+  </dialog>
+
+  <dialog class="PortalDialog" id="assignmentDialog">
+    <form class="DialogCard" id="assignmentForm" method="dialog">
+      <div class="DialogHeader">
+        <div>
+          <div class="DialogTitle">Asignaciones</div>
+          <div class="DialogSubtitle">Asigna o retira roles y grupos por usuario.</div>
+        </div>
+        <button class="DialogClose" type="button" data-close-dialog>✕</button>
+      </div>
+      <label class="DialogField">
+        <span>Usuario</span>
+        <select id="assignmentUserSelect"></select>
+      </label>
+      <label class="DialogField">
+        <span>Rol</span>
+        <select id="assignmentRoleSelect"></select>
+      </label>
+      <div class="DialogActionsInline">
+        <button class="BotonPrimario" id="assignRoleBtn" type="button">Asignar rol</button>
+        <button class="BotonSecundario" id="removeRoleBtn" type="button">Quitar rol</button>
+      </div>
+      <label class="DialogField">
+        <span>Grupo</span>
+        <select id="assignmentGroupSelect"></select>
+      </label>
+      <div class="DialogActionsInline">
+        <button class="BotonPrimario" id="assignGroupBtn" type="button">Asignar grupo</button>
+        <button class="BotonSecundario" id="removeGroupBtn" type="button">Quitar grupo</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "workbench.colorTheme": "Dark Modern",
+  "workbench.preferredDarkColorTheme": "Dark Modern",
+  "workbench.preferredLightColorTheme": "Light Modern",
+  "window.autoDetectColorScheme": false,
+  "window.zoomLevel": 0,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.formatOnSave": true,
+  "editor.wordWrap": "on",
+  "editor.rulers": [
+    100
+  ],
+  "editor.fontLigatures": true,
+  "search.exclude": {
+    "**/.venv": true,
+    "**/__pycache__": true,
+    "**/node_modules": true,
+    "**/.git": true
+  },
+  "files.exclude": {
+    "**/.venv": true,
+    "**/__pycache__": true,
+    "**/.git": true
+  },
+  "python.envFile": "${workspaceFolder}/.env",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "remote.SSH.showLoginTerminal": true,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#111111",
+    "sideBar.background": "#111111",
+    "editor.background": "#121212",
+    "titleBar.activeBackground": "#111111",
+    "panel.background": "#151515"
+  }
+}

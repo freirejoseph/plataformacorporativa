@@ -1,0 +1,15 @@
+services:
+  accesos-menues:
+    build:
+      context: ../..
+      dockerfile: infra/docker/Dockerfile
+    env_file:
+      - ../../.env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../../portal-data:/app/portal-data
+      - ../../apps:/app/apps
+      - ../../core:/app/core
+      - ../../shared:/app/shared
+    restart: unless-stopped

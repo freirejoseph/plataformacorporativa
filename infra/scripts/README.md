@@ -39,8 +39,4 @@ PowerShell wrapper:
 Primary root:
 - `/home/plataformacorporativa`
 
-Fallback root:
-- `/home/joseph/plataformacorporativa`
-
-The script tries the primary root first and falls back only if needed.
-
+The script uses only the primary root. There is no fallback root.

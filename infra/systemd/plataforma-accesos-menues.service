@@ -1,0 +1,15 @@
+[Unit]
+Description=Plataforma Corporativa - Accesos y Menues
+After=network.target
+
+[Service]
+Type=simple
+User=joseph
+WorkingDirectory=/home/plataformacorporativa/apps/accesos-menues/backend
+Environment=PORT=8000
+ExecStart=/home/plataformacorporativa/.venv/bin/python /home/plataformacorporativa/apps/accesos-menues/backend/main.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
