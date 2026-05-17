@@ -1,0 +1,170 @@
+@import url("../../docs/SKILLPortalCorporativo.css");
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #07141f;
+}
+
+body {
+  font-family: var(--pc-font);
+}
+
+.portal-corporativo-preview {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  background: linear-gradient(180deg, #07141f 0%, #091722 100%);
+}
+
+.preview-sidebar {
+  padding: 22px 16px;
+}
+
+.preview-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.preview-sidebar-brand strong,
+.preview-sidebar-brand span {
+  display: block;
+}
+
+.preview-brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #31d0aa 0%, #2d7ff9 100%);
+}
+
+.preview-nav {
+  display: grid;
+  gap: 8px;
+}
+
+.preview-nav a {
+  color: var(--pc-text-muted);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+.preview-nav a.active,
+.preview-nav a:hover {
+  background: rgba(45, 127, 249, 0.18);
+  color: var(--pc-text);
+}
+
+.preview-launch-card {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid var(--pc-border);
+  background: rgba(16, 38, 56, 0.92);
+}
+
+.preview-content {
+  min-width: 0;
+}
+
+.preview-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.preview-user img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.preview-main-grid {
+  margin-top: 14px;
+}
+
+.preview-panel {
+  min-height: 290px;
+}
+
+.preview-module-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 0 18px 18px;
+}
+
+.preview-module {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  text-align: left;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(124, 177, 255, 0.14);
+  background: rgba(7, 18, 28, 0.6);
+  color: var(--pc-text);
+  cursor: pointer;
+}
+
+.preview-module.primary {
+  border-color: rgba(49, 208, 170, 0.45);
+  box-shadow: 0 0 0 1px rgba(49, 208, 170, 0.18) inset;
+}
+
+.preview-status-stack {
+  display: grid;
+  gap: 10px;
+  padding: 0 18px 18px;
+}
+
+.preview-status-stack div,
+.preview-tree .tree-node {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(124, 177, 255, 0.1);
+  background: rgba(7, 18, 28, 0.5);
+}
+
+.preview-tree {
+  display: grid;
+  gap: 8px;
+}
+
+.preview-tree .root {
+  font-weight: 700;
+}
+
+.preview-tree .indent {
+  margin-left: 14px;
+}
+
+.preview-actions .portal-action {
+  min-height: 70px;
+}
+
+@media (max-width: 1100px) {
+  .portal-corporativo-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-sidebar {
+    display: none;
+  }
+
+  .portal-kpi-grid,
+  .portal-main-grid,
+  .portal-bottom-grid,
+  .preview-module-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

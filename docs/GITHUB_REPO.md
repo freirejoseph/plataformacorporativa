@@ -28,3 +28,12 @@ Este repositorio debe concentrar:
 - `accesos-menues` es el primer subportal funcional.
 - El Portal Corporativo es el punto de entrada logico para los usuarios.
 
+## Como probar la vista corporativa
+- abrir `apps/portal-corporativo/index.html`
+- o servir `apps/portal-corporativo/` con `python -m http.server 5173`
+- la pagina de prueba muestra el shell visual del Portal Corporativo y el acceso al subportal `Usuarios y Accesos`
+
+## Sincronizacion automatica
+- `infra/scripts/sync_and_publish.py`
+- `infra/scripts/sync_and_publish.ps1`
+- modo watch recomendado para cambios frecuentes: `--watch --interval 60 --push`

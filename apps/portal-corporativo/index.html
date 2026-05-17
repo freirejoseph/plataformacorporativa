@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portal Corporativo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="portal-corporativo-preview">
+      <aside class="portal-sidebar preview-sidebar">
+        <div class="preview-sidebar-brand">
+          <div class="preview-brand-mark"></div>
+          <div>
+            <strong>SYSPRO</strong>
+            <span>ERP</span>
+          </div>
+        </div>
+
+        <nav class="preview-nav">
+          <a class="active" href="#">Home</a>
+          <a href="#">Buscar IA</a>
+          <a href="#">Documentos</a>
+          <a href="#">Favoritos</a>
+          <a href="#">Recientes</a>
+        </nav>
+
+        <div class="preview-launch-card">
+          <p>Accesos Digitales</p>
+          <h3>Portal Corporativo</h3>
+          <span>Entrada principal a la plataforma</span>
+        </div>
+      </aside>
+
+      <section class="preview-content">
+        <header class="portal-header">
+          <div class="portal-brand">
+            <div class="portal-brand-mark"></div>
+            <div class="portal-brand-title">
+              <strong>Portal Corporativo</strong>
+              <span>Tu centro de acceso a tableros y gestiones</span>
+            </div>
+          </div>
+
+          <div class="portal-search">
+            <input id="search" type="search" placeholder="Buscar modulos, accesos, documentos..." />
+          </div>
+
+          <div class="preview-user">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&h=120&fit=crop&crop=face" alt="Usuario" />
+            <div>
+              <strong>Joseph</strong>
+              <span>Gerente</span>
+            </div>
+          </div>
+        </header>
+
+        <main>
+          <section class="portal-kpi-grid">
+            <article class="portal-kpi-card">
+              <h4>Portales disponibles</h4>
+              <div class="value">5</div>
+              <div class="meta">Accesos visibles segun permisos</div>
+            </article>
+            <article class="portal-kpi-card">
+              <h4>Tableros activos</h4>
+              <div class="value">24</div>
+              <div class="meta">Dashboards autorizados</div>
+            </article>
+            <article class="portal-kpi-card">
+              <h4>Sesiones activas</h4>
+              <div class="value">37</div>
+              <div class="meta">Ultima actualizacion: ahora</div>
+            </article>
+            <article class="portal-kpi-card">
+              <h4>Accesos directos</h4>
+              <div class="value">12</div>
+              <div class="meta">A gestiones o dashboards</div>
+            </article>
+            <article class="portal-kpi-card">
+              <h4>Notificaciones</h4>
+              <div class="value">8</div>
+              <div class="meta">Alertas visibles por perfil</div>
+            </article>
+            <article class="portal-kpi-card">
+              <h4>Fecha y hora</h4>
+              <div class="value" id="clock">09:45</div>
+              <div class="meta" id="date">Lunes, 20/05/2024</div>
+            </article>
+          </section>
+
+          <section class="portal-main-grid preview-main-grid">
+            <article class="portal-panel preview-panel">
+              <div class="portal-panel-header">
+                <div>
+                  <h2 class="portal-panel-title">Portales principales</h2>
+                  <div class="portal-panel-subtitle">Punto de entrada del usuario</div>
+                </div>
+              </div>
+              <div class="preview-module-grid">
+                <button class="preview-module primary" data-target="accesos-menues">
+                  <strong>Usuarios y Accesos</strong>
+                  <span>Subportal madre para administrar usuarios, roles, grupos y menues.</span>
+                </button>
+                <button class="preview-module">
+                  <strong>Produccion</strong>
+                  <span>Programacion y control de planta.</span>
+                </button>
+                <button class="preview-module">
+                  <strong>Inventario</strong>
+                  <span>Existencias, lotes y movimientos.</span>
+                </button>
+                <button class="preview-module">
+                  <strong>Finanzas</strong>
+                  <span>Contabilidad, cierres y reportes.</span>
+                </button>
+                <button class="preview-module">
+                  <strong>Compras</strong>
+                  <span>Solicitudes, ordenes y proveedores.</span>
+                </button>
+                <button class="preview-module">
+                  <strong>Reportes</strong>
+                  <span>Dashboards ejecutivos y analitica.</span>
+                </button>
+              </div>
+            </article>
+
+            <article class="portal-panel preview-panel">
+              <div class="portal-panel-header">
+                <div>
+                  <h2 class="portal-panel-title">Tableros disponibles</h2>
+                  <div class="portal-panel-subtitle">Accesos segun rol y grupo</div>
+                </div>
+              </div>
+              <div class="portal-access-grid">
+                <div class="portal-access-item">
+                  <div>
+                    <strong>Dashboard Gerencial</strong>
+                    <span>Acceso total</span>
+                  </div>
+                  <span class="portal-badge-success">Visible</span>
+                </div>
+                <div class="portal-access-item">
+                  <div>
+                    <strong>Usuarios y Accesos</strong>
+                    <span>Gestion administrativa</span>
+                  </div>
+                  <span class="portal-badge-warning">Subportal</span>
+                </div>
+                <div class="portal-access-item">
+                  <div>
+                    <strong>Programacion Produccion</strong>
+                    <span>Gestion operativa</span>
+                  </div>
+                  <span class="portal-badge-danger">Pendiente</span>
+                </div>
+                <div class="portal-access-item">
+                  <div>
+                    <strong>Reportes Ejecutivos</strong>
+                    <span>Solo lectura</span>
+                  </div>
+                  <span class="portal-badge-success">Visible</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="portal-panel preview-panel">
+              <div class="portal-panel-header">
+                <div>
+                  <h2 class="portal-panel-title">Estado del sistema</h2>
+                  <div class="portal-panel-subtitle">Servicios y conexiones</div>
+                </div>
+              </div>
+              <div class="preview-status-stack">
+                <div><strong>Portal Corporativo</strong><span>En linea</span></div>
+                <div><strong>accesos-menues</strong><span>En desarrollo</span></div>
+                <div><strong>Base de datos</strong><span>SQLite local</span></div>
+                <div><strong>Sincronizacion</strong><span>Local + Ubuntu + GitHub</span></div>
+              </div>
+            </article>
+          </section>
+
+          <section class="portal-bottom-grid preview-bottom-grid">
+            <article class="portal-footer-card">
+              <h3>Estructura de carpetas</h3>
+              <div class="preview-tree">
+                <div class="tree-node root">plataformacorporativa</div>
+                <div class="tree-node">docs</div>
+                <div class="tree-node indent">SKILLS_INDEX.md</div>
+                <div class="tree-node indent">SKILLPortalCorporativo.md</div>
+                <div class="tree-node indent">SKILL_accesos-menues.md</div>
+                <div class="tree-node">apps</div>
+                <div class="tree-node indent">portal-corporativo</div>
+                <div class="tree-node indent">accesos-menues</div>
+              </div>
+            </article>
+
+            <article class="portal-footer-card">
+              <h3>Acciones rapidas</h3>
+              <div class="portal-actions preview-actions">
+                <button class="portal-action">Usuarios</button>
+                <button class="portal-action">Roles</button>
+                <button class="portal-action">Menus</button>
+                <button class="portal-action">Permisos</button>
+              </div>
+            </article>
+          </section>
+        </main>
+      </section>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
+

@@ -38,6 +38,30 @@ La copia local se usa como respaldo y espejo de trabajo.
 3. Al final de cada cambio se sincroniza local y Ubuntu.
 4. Se documenta cualquier hallazgo en `RevisionesQA/`.
 
+## Sincronizacion automatica
+Use el script de automatizacion para mantener el espejo y publicar cambios:
+
+```powershell
+python .\infra\scripts\sync_and_publish.py --watch --interval 60 --push
+```
+
+La version PowerShell esta en:
+- `infra/scripts/sync_and_publish.ps1`
+
+## Probar el Portal Corporativo
+La vista inicial del portal se puede probar abriendo:
+- `apps/portal-corporativo/index.html`
+
+O levantando un servidor estatico en el folder:
+
+```powershell
+cd apps\portal-corporativo
+python -m http.server 5173
+```
+
+Luego abre:
+- `http://127.0.0.1:5173/`
+
 ## Publicacion
 El portal actual del servidor Ubuntu ya existe y no debe tocarse sin validacion.
 El nuevo desarrollo se maneja como portal aislado y su publicacion debe hacerse en el puerto o ruta que corresponda al subportal correspondiente.
@@ -52,4 +76,3 @@ Para el subportal `accesos-menues`:
 ## Repositorio GitHub
 Repositorio remoto asociado:
 - `https://github.com/freirejoseph/plataformacorporativa.git`
-
