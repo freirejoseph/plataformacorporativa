@@ -12,176 +12,330 @@
         <div class="preview-sidebar-brand">
           <img class="preview-brand-mark" src="assets/brand-portal-corporativo.svg" alt="Portal Corporativo">
           <div>
-            <strong>SYSPRO</strong>
-            <span>ERP</span>
+            <strong>PORTAL CORPORATIVO</strong>
+            <span>INDUSTRIAL</span>
           </div>
         </div>
 
         <nav class="preview-nav" aria-label="Navegacion principal">
-          <a class="active" href="#">Home</a>
-          <a href="#">Buscar IA</a>
-          <a href="#">Documentos</a>
-          <a href="#">Favoritos</a>
-          <a href="#">Recientes</a>
+          <a class="active" href="#">Inicio</a>
+          <a href="#">SYSPRO ERP</a>
+          <a href="#">Produccion</a>
+          <a href="#">Inventario</a>
+          <a href="#">Finanzas</a>
+          <a href="#">CxC</a>
+          <a href="#">CxP</a>
+          <a href="#">Compras</a>
+          <a href="#">Tableros Interactivos</a>
+          <a href="#">Usuarios y Accesos</a>
+          <a href="#">Seguridad y Permisos</a>
         </nav>
 
-          <div class="preview-launch-card">
-            <img class="preview-launch-logo" src="assets/brand-accesos-digitales.svg" alt="Accesos Digitales">
-            <p>Accesos Digitales</p>
-            <h3>Portal Corporativo</h3>
-            <span id="portalLaunchStatus">Entrada principal a la plataforma</span>
-          </div>
-        </aside>
+        <div class="preview-launch-card">
+          <img class="preview-launch-logo" src="assets/brand-accesos-digitales.svg" alt="Accesos Digitales">
+          <p>Accesos Digitales</p>
+          <h3>Portal de Usuarios y Accesos</h3>
+          <span id="portalLaunchStatus">Entrada principal para administracion de usuarios, roles y permisos</span>
+          <button class="portal-launch-button" type="button" data-target="accesos-menues">
+            Abrir subportal
+          </button>
+        </div>
+      </aside>
 
       <section class="preview-content">
         <header class="portal-header">
-          <div class="portal-brand">
-            <img class="portal-brand-mark" src="assets/brand-portal-corporativo.svg" alt="Portal Corporativo">
-          <div class="portal-brand-title">
-            <strong>Portal Corporativo</strong>
-            <span id="portalWelcome">Tu centro de acceso a tableros y gestiones</span>
-          </div>
+          <div class="portal-header-left">
+            <button class="portal-menu-toggle" type="button" aria-label="Abrir menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <div class="portal-brand">
+              <img class="portal-brand-mark" src="assets/brand-portal-corporativo.svg" alt="Portal Corporativo">
+              <div class="portal-brand-title">
+                <strong>Portal Corporativo Industrial</strong>
+                <span id="portalWelcome">Integrando acceso, operacion y analitica</span>
+              </div>
+            </div>
           </div>
 
           <div class="portal-search">
-            <input id="search" type="search" placeholder="Buscar modulos, accesos, documentos..." />
+            <input id="search" type="search" placeholder="Buscar modulos, reportes, documentos, usuarios..." />
           </div>
 
-          <div class="preview-user">
-            <img src="assets/avatar-joseph.svg" alt="Joseph, Gerente" />
-            <div>
-              <strong>Joseph</strong>
-              <span id="sessionBadge">Gerente</span>
+          <div class="portal-toolbar">
+            <button class="portal-toolbar-icon" type="button" aria-label="Notificaciones">7</button>
+            <button class="portal-toolbar-icon" type="button" aria-label="Ayuda">?</button>
+            <button class="portal-toolbar-icon" type="button" aria-label="Tema">☼</button>
+            <div class="preview-user">
+              <img src="assets/avatar-joseph.svg" alt="Joseph, Gerente" />
+              <div>
+                <strong>Carlos Alberto</strong>
+                <span>Administrador</span>
+              </div>
             </div>
           </div>
         </header>
 
-        <main>
+        <main class="portal-dashboard">
+          <section class="portal-hero">
+            <div class="portal-hero-copy">
+              <h1>Bienvenido, Carlos Alberto!</h1>
+              <p>Portal Corporativo Industrial</p>
+              <span>Integrando SYSPRO ERP + Odoo RRHH + Tableros Interactivos</span>
+            </div>
+
+            <div class="portal-hero-badges">
+              <article class="portal-hero-badge">
+                <img src="assets/brand-portal-corporativo.svg" alt="" />
+                <div>
+                  <strong>SYSPRO ERP</strong>
+                  <span>Conectado <i></i></span>
+                </div>
+              </article>
+              <article class="portal-hero-badge">
+                <img src="assets/brand-accesos-digitales.svg" alt="" />
+                <div>
+                  <strong>Odoo RRHH</strong>
+                  <span>Conectado <i></i></span>
+                </div>
+              </article>
+            </div>
+          </section>
+
           <section class="portal-kpi-grid">
             <article class="portal-kpi-card">
-              <h4>Portales disponibles</h4>
-              <div class="value">5</div>
-              <div class="meta" id="sessionSummary">Accesos visibles segun permisos</div>
+              <h4>Produccion total</h4>
+              <div class="value">1,284</div>
+              <div class="meta">Unidades</div>
+              <div class="trend trend-up">+8.5% vs ayer</div>
             </article>
             <article class="portal-kpi-card">
-              <h4>Tableros activos</h4>
-              <div class="value">24</div>
-              <div class="meta">Dashboards autorizados</div>
+              <h4>OEE Planta</h4>
+              <div class="value">78.4%</div>
+              <div class="meta">Disponibilidad operativa</div>
+              <div class="trend trend-up">+3.2% vs ayer</div>
             </article>
             <article class="portal-kpi-card">
-              <h4>Sesiones activas</h4>
-              <div class="value">37</div>
-              <div class="meta" id="sessionStatus">Ultima actualizacion: ahora</div>
+              <h4>Ventas del dia</h4>
+              <div class="value">$ 1,245,000</div>
+              <div class="meta">Facturacion acumulada</div>
+              <div class="trend trend-up">+12.6% vs ayer</div>
             </article>
             <article class="portal-kpi-card">
-              <h4>Accesos directos</h4>
-              <div class="value">12</div>
-              <div class="meta">A gestiones o dashboards</div>
+              <h4>Inventario valorado</h4>
+              <div class="value">$ 2,845,200</div>
+              <div class="meta">Stock disponible</div>
+              <div class="trend trend-down">-2.1% vs ayer</div>
             </article>
             <article class="portal-kpi-card">
-              <h4>Notificaciones</h4>
-              <div class="value">8</div>
-              <div class="meta">Alertas visibles por perfil</div>
+              <h4>Ordenes activas</h4>
+              <div class="value">156</div>
+              <div class="meta">Pendientes en produccion</div>
+              <div class="trend trend-up">+5.6% vs ayer</div>
             </article>
             <article class="portal-kpi-card">
-              <h4>Fecha y hora</h4>
-              <div class="value" id="clock" aria-live="polite">09:45</div>
-              <div class="meta" id="date">Lunes, 20/05/2024</div>
+              <h4>Fecha y Hora</h4>
+              <div class="value" id="clock" aria-live="polite">09:45 AM</div>
+              <div class="meta" id="date">20/05/2024</div>
+              <div class="trend" id="sessionStatus">Lunes</div>
             </article>
           </section>
 
-          <section class="portal-main-grid preview-main-grid">
-            <article class="portal-panel preview-panel">
-              <div class="portal-panel-header">
-                <div>
-                  <h2 class="portal-panel-title">Portales principales</h2>
-                  <div class="portal-panel-subtitle">Punto de entrada del usuario</div>
-                </div>
-              </div>
-              <div class="preview-module-grid" id="portalModules">
-                <button class="preview-module primary" data-target="accesos-menues">
-                  <strong>Usuarios y Accesos</strong>
-                  <span>Subportal madre para administrar usuarios, roles, grupos y menues.</span>
-                </button>
-                <button class="preview-module">
-                  <strong>Produccion</strong>
-                  <span>Programacion y control de planta.</span>
-                </button>
-                <button class="preview-module">
-                  <strong>Inventario</strong>
-                  <span>Existencias, lotes y movimientos.</span>
-                </button>
-                <button class="preview-module">
-                  <strong>Finanzas</strong>
-                  <span>Contabilidad, cierres y reportes.</span>
-                </button>
-                <button class="preview-module">
-                  <strong>Compras</strong>
-                  <span>Solicitudes, ordenes y proveedores.</span>
-                </button>
-                <button class="preview-module">
-                  <strong>Reportes</strong>
-                  <span>Dashboards ejecutivos y analitica.</span>
-                </button>
-              </div>
-            </article>
-
-            <article class="portal-panel preview-panel">
-              <div class="portal-panel-header">
-                <div>
-                  <h2 class="portal-panel-title">Tableros disponibles</h2>
-                  <div class="portal-panel-subtitle">Accesos segun rol y grupo</div>
-                </div>
-              </div>
-              <div class="portal-access-grid" id="portalAccessList">
-                <div class="portal-access-item">
+          <section class="portal-layout">
+            <div class="portal-layout-main">
+              <article class="portal-panel portal-table-panel">
+                <div class="portal-panel-header">
                   <div>
-                    <strong>Dashboard Gerencial</strong>
-                    <span>Acceso total</span>
+                    <h2 class="portal-panel-title">Accesos rapidos a modulos</h2>
+                    <div class="portal-panel-subtitle">Portales y tableros principales autorizados</div>
                   </div>
-                  <span class="portal-badge-success">Visible</span>
+                  <span class="portal-pill">Disponible</span>
                 </div>
-                <div class="portal-access-item">
-                  <div>
+                <div class="preview-module-grid" id="portalModules">
+                  <button class="preview-module primary" data-target="accesos-menues">
                     <strong>Usuarios y Accesos</strong>
-                    <span>Gestion administrativa</span>
-                  </div>
-                  <span class="portal-badge-warning">Subportal</span>
+                    <span>Subportal madre para administrar usuarios, roles, grupos y menus.</span>
+                  </button>
+                  <button class="preview-module">
+                    <strong>Produccion</strong>
+                    <span>Ordenes, capacidad y control de planta.</span>
+                  </button>
+                  <button class="preview-module">
+                    <strong>Inventario</strong>
+                    <span>Existencias, lotes y movimientos.</span>
+                  </button>
+                  <button class="preview-module">
+                    <strong>Finanzas</strong>
+                    <span>Contabilidad, cierres y reportes.</span>
+                  </button>
+                  <button class="preview-module">
+                    <strong>Compras</strong>
+                    <span>Solicitudes, ordenes y proveedores.</span>
+                  </button>
+                  <button class="preview-module">
+                    <strong>Reportes</strong>
+                    <span>Dashboards ejecutivos y analitica.</span>
+                  </button>
                 </div>
-                <div class="portal-access-item">
-                  <div>
-                    <strong>Programacion Produccion</strong>
-                    <span>Gestion operativa</span>
-                  </div>
-                  <span class="portal-badge-danger">Pendiente</span>
-                </div>
-                <div class="portal-access-item">
-                  <div>
-                    <strong>Reportes Ejecutivos</strong>
-                    <span>Solo lectura</span>
-                  </div>
-                  <span class="portal-badge-success">Visible</span>
-                </div>
-              </div>
-            </article>
+              </article>
 
-            <article class="portal-panel preview-panel">
-              <div class="portal-panel-header">
-                <div>
-                  <h2 class="portal-panel-title">Estado del sistema</h2>
-                  <div class="portal-panel-subtitle">Servicios y conexiones</div>
+              <article class="portal-panel portal-table-panel">
+                <div class="portal-panel-header">
+                  <div>
+                    <h2 class="portal-panel-title">Indicadores generales</h2>
+                    <div class="portal-panel-subtitle">Resumen operativo en tiempo real</div>
+                  </div>
+                  <span class="portal-pill">Hoy</span>
                 </div>
-              </div>
-              <div class="preview-status-stack" id="portalStatusStack">
-                <div><strong>Portal Corporativo</strong><span>En linea</span></div>
-                <div><strong>accesos-menues</strong><span>En desarrollo</span></div>
-                <div><strong>Base de datos</strong><span>SQLite local</span></div>
-                <div><strong>Sincronizacion</strong><span>Local + Ubuntu + GitHub</span></div>
-              </div>
-            </article>
+                <div class="portal-charts-grid">
+                  <div class="portal-chart-card">
+                    <strong>Produccion por linea</strong>
+                    <div class="portal-bars">
+                      <span style="height: 78%"></span>
+                      <span style="height: 92%"></span>
+                      <span style="height: 84%"></span>
+                      <span style="height: 76%"></span>
+                      <span style="height: 88%"></span>
+                    </div>
+                  </div>
+                  <div class="portal-chart-card">
+                    <strong>Top productos</strong>
+                    <div class="portal-horizontal-bars">
+                      <span><i style="width: 92%"></i></span>
+                      <span><i style="width: 86%"></i></span>
+                      <span><i style="width: 78%"></i></span>
+                      <span><i style="width: 72%"></i></span>
+                      <span><i style="width: 66%"></i></span>
+                    </div>
+                  </div>
+                  <div class="portal-chart-card portal-donut-card">
+                    <strong>Cumplimiento de ordenes</strong>
+                    <div class="portal-donut">
+                      <span>85%</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="portal-panel portal-table-panel">
+                <div class="portal-panel-header">
+                  <div>
+                    <h2 class="portal-panel-title">Usuarios y accesos</h2>
+                    <div class="portal-panel-subtitle">Resumen de permisos y sesiones visibles</div>
+                  </div>
+                  <a href="#" class="portal-link">Gestionar</a>
+                </div>
+                <div class="portal-access-summary">
+                  <div class="portal-mini-card">
+                    <span>Usuarios activos</span>
+                    <strong>132</strong>
+                  </div>
+                  <div class="portal-mini-card">
+                    <span>Conexiones hoy</span>
+                    <strong>48</strong>
+                  </div>
+                  <div class="portal-mini-card portal-mini-card-chart">
+                    <span>Accesos</span>
+                    <strong>132</strong>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <aside class="portal-layout-aside">
+              <article class="portal-panel portal-side-panel">
+                <div class="portal-panel-header">
+                  <div>
+                    <h2 class="portal-panel-title">Alertas importantes</h2>
+                    <div class="portal-panel-subtitle">Visibilidad ejecutiva del dia</div>
+                  </div>
+                  <a href="#" class="portal-link">Ver todas</a>
+                </div>
+                <div class="portal-alert-list" id="portalNotifications">
+                  <div class="portal-alert critical">
+                    <strong>Ordenes de produccion retrasadas</strong>
+                    <span>12 ordenes con atraso</span>
+                  </div>
+                  <div class="portal-alert warning">
+                    <strong>Inventario bajo</strong>
+                    <span>23 items por debajo del minimo</span>
+                  </div>
+                  <div class="portal-alert info">
+                    <strong>Pagos pendientes</strong>
+                    <span>15 facturas proximas a vencer</span>
+                  </div>
+                  <div class="portal-alert neutral">
+                    <strong>Mantenimiento preventivo</strong>
+                    <span>8 tareas proximas</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="portal-panel portal-side-panel">
+                <div class="portal-panel-header">
+                  <div>
+                    <h2 class="portal-panel-title">Estado del sistema</h2>
+                    <div class="portal-panel-subtitle">Portales y servicios conectados</div>
+                  </div>
+                </div>
+                <div class="preview-status-stack" id="portalStatusStack">
+                  <div><strong>SYSPRO ERP</strong><span>En linea</span></div>
+                  <div><strong>Odoo RRHH</strong><span>En linea</span></div>
+                  <div><strong>Base de datos</strong><span>En linea</span></div>
+                </div>
+                <div class="portal-integration-list">
+                  <div><strong>SYSPRO ERP API</strong><span>SINCRONIZADO</span></div>
+                  <div><strong>Odoo RRHH API</strong><span>SINCRONIZADO</span></div>
+                  <div><strong>Servicio de autenticacion</strong><span>SINCRONIZADO</span></div>
+                </div>
+              </article>
+
+              <article class="portal-panel portal-side-panel">
+                <div class="portal-panel-header">
+                  <div>
+                    <h2 class="portal-panel-title">Usuarios y accesos</h2>
+                    <div class="portal-panel-subtitle">Visibilidad por perfil</div>
+                  </div>
+                </div>
+                <div class="portal-user-kpis">
+                  <div class="portal-mini-card">
+                    <span>Usuarios activos</span>
+                    <strong>132 de 180</strong>
+                  </div>
+                  <div class="portal-mini-card">
+                    <span>Conexiones hoy</span>
+                    <strong>48 usuarios</strong>
+                  </div>
+                </div>
+                <div class="portal-role-list" id="portalRoles">
+                  <span class="portal-tag">Super Administrador</span>
+                  <span class="portal-tag">Gerente</span>
+                  <span class="portal-tag">Supervisor</span>
+                  <span class="portal-tag">Operador</span>
+                </div>
+                <div class="portal-access-donut">
+                  <span>132</span>
+                  <small>Total</small>
+                </div>
+                <div class="portal-actions preview-actions" id="portalQuickActions">
+                  <button class="portal-action" type="button">Gestionar usuarios y permisos</button>
+                </div>
+              </article>
+            </aside>
           </section>
 
           <section class="portal-bottom-grid preview-bottom-grid">
+            <article class="portal-footer-card">
+              <h3>Accesos rapidos</h3>
+              <div class="portal-actions preview-actions">
+                <button class="portal-action" type="button" data-target="accesos-menues">Usuarios</button>
+                <button class="portal-action" type="button" data-target="accesos-menues">Roles</button>
+                <button class="portal-action" type="button" data-target="accesos-menues">Menus</button>
+                <button class="portal-action" type="button" data-target="accesos-menues">Permisos</button>
+              </div>
+            </article>
+
             <article class="portal-footer-card">
               <h3>Estructura de carpetas</h3>
               <div class="preview-tree" id="portalTree">
@@ -193,16 +347,6 @@
                 <div class="tree-node">apps</div>
                 <div class="tree-node indent">portal-corporativo</div>
                 <div class="tree-node indent">accesos-menues</div>
-              </div>
-            </article>
-
-            <article class="portal-footer-card">
-              <h3>Acciones rapidas</h3>
-              <div class="portal-actions preview-actions" id="portalQuickActions">
-                <button class="portal-action">Usuarios</button>
-                <button class="portal-action">Roles</button>
-                <button class="portal-action">Menus</button>
-                <button class="portal-action">Permisos</button>
               </div>
             </article>
           </section>
