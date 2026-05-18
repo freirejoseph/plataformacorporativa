@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from importlib.util import module_from_spec, spec_from_file_location
 from pathlib import Path
+from uuid import uuid4
 
 from fastapi.testclient import TestClient
 
@@ -40,6 +41,7 @@ def test_roles_listing() -> None:
 
 
 def test_login_and_create_user_with_session() -> None:
+    unique_email = f"qa.test.{uuid4().hex[:8]}@empresa.com"
     login_response = client.post(
         "/api/auth/login",
         json={"correo": "joseph@empresa.com", "password": "Plataforma123!"},
@@ -51,7 +53,7 @@ def test_login_and_create_user_with_session() -> None:
         headers={"X-Session-Token": token},
         json={
             "nombre": "QA Test",
-            "correo": "qa.test@empresa.com",
+            "correo": unique_email,
             "cargo": "Analista",
             "estado": "ACTIVO",
         },

@@ -21,7 +21,7 @@ setInterval(renderClock, 1000);
 
 if (launch) {
   launch.addEventListener("click", () => {
-    alert("Subportal accesos-menues: pendiente de enlace final con su ruta publica.");
+    const target = new URL("../accesos-menues/frontend/index.html", window.location.href);
+    window.location.assign(target.toString());
   });
 }
-

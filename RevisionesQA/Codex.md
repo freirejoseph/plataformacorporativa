@@ -5,36 +5,28 @@
 
 ## Ya resuelto
 
-- `SKILL_Plataforma` ya incluye la regla obligatoria de sincronizar local y Ubuntu al cerrar cada cambio.
-- `core/` y `shared/` ya tienen una base funcional real para:
+- `SKILL_Plataforma` ya obliga a sincronizar local y Ubuntu al cerrar cada cambio.
+- `core/` y `shared/` ya tienen base funcional para:
   - autenticacion
   - sesiones
   - auditoria
-  - rutas compartidas
   - resolucion de permisos
   - arbol de menus
-- `apps/accesos-menues` ya incluye:
-  - login con token de sesion
-  - CRUD de usuarios, roles, grupos y menus
-  - asignacion y desasignacion de usuarios a roles y grupos
-  - arbol de menus
-  - matriz de permisos
-  - auditoria
-  - seed SQLite consistente con el acceso de prueba
-  - formularios reales en el frontend para altas y asignaciones
-- La infraestructura ya cuenta con:
-  - `infra/docker`
-  - `infra/nginx`
-  - `infra/systemd`
-  - scripts de backup, despliegue, migracion y health check
-  - CI automatizado
-- La rutina de sincronizacion local/Ubuntu ya existe y tiene modo `watch`.
-- Los tests del portal madre ya quedaron preparados para cubrir login y asignaciones.
+- `apps/accesos-menues` ya quedo operativo con:
+  - backend FastAPI con login, logout, CRUD, asignaciones y logs
+  - bootstrap de SQLite con migracion para bases viejas
+  - frontend principal del portal madre
+  - matriz de permisos y arbol de menus
+  - seed demo compatible con el login de prueba
+- `apps/portal-corporativo` ya lanza el subportal `accesos-menues`.
+- La validacion tecnica ya paso:
+  - `python -m py_compile`
+  - `pytest tests/test_accesos_menues.py`
+  - `node --check apps/portal-corporativo/app.js`
 
 ## Pendiente real
 
-- Completar los `SKILL` funcionales de los tableros de negocio restantes:
-  - `portal-corporativo`
+- Completar los `SKILL` funcionales de los tableros de negocio que aun no tienen definicion final:
   - `administracion-general`
   - `compras`
   - `cxc`
@@ -47,4 +39,4 @@
 
 ## Cierre
 
-La base transversal ya esta operativa para seguir construyendo. El siguiente esfuerzo grande ya no es el portal madre, sino el detalle funcional de cada tablero de negocio.
+La base transversal y el portal madre ya estan listos. Lo que sigue es definicion de negocio por tablero, no rearmar la plataforma comun.

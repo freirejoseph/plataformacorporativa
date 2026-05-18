@@ -5,22 +5,30 @@
 
 ## Ya resuelto
 
-- `SKILL_Plataforma` ya tiene la regla prioritaria de sincronizar local y Ubuntu al final de cada cambio.
-- La base comun ya esta creada y consumible:
-  - `core/`
-  - `shared/`
-- El portal madre ya cuenta con:
-  - login con sesion
-  - formularios reales
+- `SKILL_Plataforma` ya obliga a sincronizar local y Ubuntu al final de cada cambio.
+- La base comun `core/` + `shared/` ya esta lista para uso real.
+- `apps/accesos-menues` ya cuenta con:
+  - login y logout
+  - CRUD de usuarios, roles, grupos y menus
   - asignacion y desasignacion de roles y grupos
-  - permisos y auditoria
-  - seed SQLite alineado con el acceso de desarrollo
-- La infraestructura base y la CI ya existen.
+  - auditoria y logs
+  - bootstrap de SQLite con migracion de esquema viejo
+- `apps/portal-corporativo` ya puede lanzar el subportal de accesos.
+- La validacion tecnica del portal madre ya paso.
 
 ## Pendiente real
 
-- Completar los `SKILL` detallados de los tableros de negocio restantes.
+- Definir por completo los `SKILL` de los tableros de negocio que aun no tienen reglas finales:
+  - `administracion-general`
+  - `compras`
+  - `cxc`
+  - `cxp`
+  - `finanzas`
+  - `inventario`
+  - `produccion`
+  - `reportes`
+  - `rrhh`
 
 ## Cierre
 
-La plataforma ya paso de una fase conceptual a una fase operativa. Lo que sigue es detallar cada dominio funcional con su propia logica, tablas y reglas de negocio.
+La plataforma ya esta operativa en su capa compartida. Lo que resta es definicion funcional por dominio, no infraestructura comun.

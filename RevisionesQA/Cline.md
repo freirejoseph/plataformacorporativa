@@ -5,26 +5,35 @@
 
 ## Ya resuelto
 
-- `SKILL_Plataforma` ya obliga a sincronizar siempre local y Ubuntu al cerrar cada tarea.
-- La capa comun ya tiene una base funcional util:
-  - `core/`
-  - `shared/`
-- El portal madre `accesos-menues` ya dejo de depender de prompts para el alta principal:
-  - ahora usa formularios reales para usuarios, roles y grupos
-  - tambien permite asignar y quitar roles y grupos
-- Ya existe:
-  - autenticacion por token de sesion
-  - CRUD del portal madre
+- `SKILL_Plataforma` ya fuerza la sincronizacion local + Ubuntu al cerrar cada cambio.
+- La capa compartida `core/` y `shared/` ya cubre:
+  - autenticacion
+  - sesiones
   - auditoria
-  - matriz de permisos
-  - arbol de menus
-  - CI
-  - infraestructura base para Docker, Nginx, systemd y scripts operativos
+  - permisos
+  - menus
+- El portal madre `accesos-menues` ya quedo funcional con:
+  - login y logout
+  - CRUD de usuarios, roles, grupos y menus
+  - asignacion y desasignacion de roles y grupos
+  - logs de actividad y accesos
+  - bootstrap de SQLite con migracion de datos viejos
+- El `Portal Corporativo` ya puede abrir el subportal madre.
+- Los tests del portal madre ya pasan.
 
 ## Pendiente real
 
-- Completar los `SKILL` de los modulos de negocio que todavia no tienen definicion funcional final.
+- Definir los `SKILL` funcionales de los tableros de negocio que aun no estan cerrados:
+  - `administracion-general`
+  - `compras`
+  - `cxc`
+  - `cxp`
+  - `finanzas`
+  - `inventario`
+  - `produccion`
+  - `reportes`
+  - `rrhh`
 
 ## Cierre
 
-La base ya es suficientemente solida para operar el portal madre y seguir con los tableros de negocio sin rehacer la plataforma compartida.
+La plataforma compartida ya no es el cuello de botella. El siguiente trabajo depende de la definicion de cada dominio de negocio.
