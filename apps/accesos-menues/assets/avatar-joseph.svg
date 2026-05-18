@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Joseph</title>
+  <desc id="desc">Avatar corporativo para Joseph.</desc>
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d7ff9"/>
+      <stop offset="100%" stop-color="#14d8ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="64" fill="#06111d"/>
+  <circle cx="64" cy="64" r="52" fill="url(#g1)"/>
+  <circle cx="64" cy="52" r="18" fill="#fff"/>
+  <path d="M38 96c5-15 17-23 26-23s21 8 26 23" fill="#fff"/>
+  <text x="64" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#06111d" font-weight="700">J</text>
+</svg>

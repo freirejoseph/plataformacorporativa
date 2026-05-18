@@ -3,6 +3,7 @@
 Central reference for all platform skills and visual contracts.
 
 ## Core Skills
+- [SKILL Plataforma](./SKILL_Plataforma.md)
 - [SKILL Portal Corporativo](./SKILLPortalCorporativo.md)
 - [SKILL accesos-menues](./SKILL_accesos-menues.md)
 
@@ -22,4 +23,3 @@ Central reference for all platform skills and visual contracts.
 ## Current Scope
 - Portal Corporativo: user entry portal and navigation hub.
 - accesos-menues: mother portal for users, roles, groups, menus, permissions and audit.
-

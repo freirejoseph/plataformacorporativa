@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">PESA</title>
+  <desc id="desc">Marca circular de PESA con gradiente azul y cian.</desc>
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#31d0aa"/>
+      <stop offset="100%" stop-color="#2d7ff9"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="54" fill="#06111d"/>
+  <circle cx="128" cy="128" r="92" fill="url(#g1)"/>
+  <circle cx="128" cy="128" r="66" fill="#06111d"/>
+  <path d="M90 126c0-26 18-44 45-44 17 0 31 8 39 21l-22 10c-4-7-10-10-18-10-13 0-21 9-21 23s8 23 21 23c8 0 14-3 18-10l22 10c-8 13-22 21-39 21-27 0-45-18-45-44z" fill="#fff"/>
+</svg>

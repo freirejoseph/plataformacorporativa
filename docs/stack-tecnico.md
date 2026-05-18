@@ -1,26 +1,31 @@
-# Stack técnico inicial
+# Stack tecnico inicial
 
-Este es el stack base del módulo madre `accesos-menues`.
+Este es el stack base del modulo madre `accesos-menues`.
 
 ## Backend
-- Python 3.10+
+- Python 3.11+
 - FastAPI
 - Uvicorn
 - Pydantic
 - SQLAlchemy
+- Alembic
 - python-dotenv
 
 ## Base de datos
 - SQLite para desarrollo local
-- SQL Server para integración corporativa cuando aplique
+- SQL Server para integracion corporativa cuando aplique
 
 ## Frontend
 - HTML
 - CSS
 - JavaScript
+- Accesibilidad basica con roles, labels y estados invalidos
+
+## Assets
+- Logos y mockups versionados dentro del repositorio
+- Sin dependencias visuales externas para la experiencia base del portal
 
 ## Uso esperado
-- El backend lee configuración desde `.env`
-- El tablero madre administra usuarios, roles, grupos, menús y permisos
-- Los demás tableros heredan el contexto de acceso desde este módulo
-
+- El backend lee configuracion desde `.env`
+- El tablero madre administra usuarios, roles, grupos, menus y permisos
+- Los demas tableros heredan el contexto de acceso desde este modulo

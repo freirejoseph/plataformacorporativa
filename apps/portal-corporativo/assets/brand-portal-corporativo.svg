@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Portal Corporativo</title>
+  <desc id="desc">Marca del portal corporativo con gradiente azul oscuro.</desc>
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d7ff9"/>
+      <stop offset="100%" stop-color="#31d0aa"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#06111d"/>
+  <path d="M28 36h36a16 16 0 0 1 16 16v36H44A16 16 0 0 1 28 72V36z" fill="url(#g1)"/>
+  <path d="M72 28h28v44a20 20 0 0 1-20 20H52V44a16 16 0 0 1 16-16z" fill="#153d7d" opacity=".95"/>
+  <circle cx="50" cy="54" r="6" fill="#fff"/>
+  <circle cx="78" cy="78" r="6" fill="#fff"/>
+</svg>

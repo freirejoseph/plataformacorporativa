@@ -61,6 +61,9 @@ function showMessage(message, tone = 'info') {
     box = document.createElement('div');
     box.id = 'formMessage';
     box.className = 'FormMessage';
+    box.setAttribute('role', 'status');
+    box.setAttribute('aria-live', 'polite');
+    box.setAttribute('aria-atomic', 'true');
     document.body.appendChild(box);
   }
   box.className = `FormMessage ${tone}`;
@@ -70,6 +73,45 @@ function showMessage(message, tone = 'info') {
   showMessage._timer = window.setTimeout(() => {
     box.hidden = true;
   }, 3200);
+}
+
+function clearValidationState(form) {
+  form.querySelectorAll('.is-invalid').forEach((field) => {
+    field.classList.remove('is-invalid');
+    field.removeAttribute('aria-invalid');
+    field.setCustomValidity?.('');
+  });
+}
+
+function markInvalid(field, message) {
+  if (!field) {
+    return;
+  }
+  field.classList.add('is-invalid');
+  field.setAttribute('aria-invalid', 'true');
+  if (message) {
+    field.setCustomValidity?.(message);
+    field.reportValidity?.();
+  }
+}
+
+function firstField(form, selector) {
+  return form.querySelector(selector);
+}
+
+function watchValidationFields(form) {
+  form.querySelectorAll('input, select, textarea').forEach((field) => {
+    field.addEventListener('input', () => {
+      field.classList.remove('is-invalid');
+      field.removeAttribute('aria-invalid');
+      field.setCustomValidity?.('');
+    });
+    field.addEventListener('change', () => {
+      field.classList.remove('is-invalid');
+      field.removeAttribute('aria-invalid');
+      field.setCustomValidity?.('');
+    });
+  });
 }
 
 function openDialog(id) {
@@ -369,6 +411,14 @@ function bindForms() {
     button.addEventListener('click', closeDialogs);
   });
 
+  [
+    document.getElementById('loginForm'),
+    document.getElementById('userForm'),
+    document.getElementById('roleForm'),
+    document.getElementById('groupForm'),
+    document.getElementById('assignmentForm')
+  ].filter(Boolean).forEach(watchValidationFields);
+
   document.getElementById('securityBtn').onclick = () => openDialog('loginDialog');
   document.getElementById('openLoginBtn').onclick = async () => {
     try {
@@ -394,15 +444,19 @@ function bindForms() {
   document.getElementById('loginForm').onsubmit = async (event) => {
     event.preventDefault();
     try {
-      const formData = new FormData(event.currentTarget);
+      const form = event.currentTarget;
+      clearValidationState(form);
+      const formData = new FormData(form);
       const correo = String(formData.get('correo') || '').trim().toLowerCase();
       const password = String(formData.get('password') || '').trim();
       if (!isValidEmail(correo)) {
-        alert('Ingresa un correo valido.');
+        markInvalid(firstField(form, '[name="correo"]'), 'Ingresa un correo valido.');
+        showMessage('Ingresa un correo valido.', 'error');
         return;
       }
       if (password.length < 6) {
-        alert('Ingresa una password valida.');
+        markInvalid(firstField(form, '[name="password"]'), 'Ingresa una password valida.');
+        showMessage('Ingresa una password valida.', 'error');
         return;
       }
       const login = await fetchJson('/api/auth/login', {
@@ -423,17 +477,21 @@ function bindForms() {
   document.getElementById('userForm').onsubmit = async (event) => {
     event.preventDefault();
     try {
-      const formData = new FormData(event.currentTarget);
+      const form = event.currentTarget;
+      clearValidationState(form);
+      const formData = new FormData(form);
       const nombre = String(formData.get('nombre') || '').trim();
       const correo = String(formData.get('correo') || '').trim().toLowerCase();
       const cargo = String(formData.get('cargo') || '').trim();
       const estado = String(formData.get('estado') || 'ACTIVO').trim();
       if (nombre.length < 2) {
-        alert('Ingresa un nombre valido de al menos 2 caracteres.');
+        markInvalid(firstField(form, '[name="nombre"]'), 'Ingresa un nombre valido de al menos 2 caracteres.');
+        showMessage('Ingresa un nombre valido de al menos 2 caracteres.', 'error');
         return;
       }
       if (!isValidEmail(correo)) {
-        alert('Ingresa un correo valido.');
+        markInvalid(firstField(form, '[name="correo"]'), 'Ingresa un correo valido.');
+        showMessage('Ingresa un correo valido.', 'error');
         return;
       }
       await submitJson('/api/usuarios', { nombre, correo, cargo, estado });
@@ -448,17 +506,21 @@ function bindForms() {
   document.getElementById('roleForm').onsubmit = async (event) => {
     event.preventDefault();
     try {
-      const formData = new FormData(event.currentTarget);
+      const form = event.currentTarget;
+      clearValidationState(form);
+      const formData = new FormData(form);
       const codigo = String(formData.get('codigo') || '').trim().toUpperCase();
       const nombre = String(formData.get('nombre') || '').trim();
       const descripcion = String(formData.get('descripcion') || '').trim();
       const estado = String(formData.get('estado') || 'ACTIVO').trim();
       if (!isValidCode(codigo)) {
-        alert('El codigo debe usar mayusculas, numeros o guion bajo.');
+        markInvalid(firstField(form, '[name="codigo"]'), 'El codigo debe usar mayusculas, numeros o guion bajo.');
+        showMessage('El codigo debe usar mayusculas, numeros o guion bajo.', 'error');
         return;
       }
       if (nombre.length < 2) {
-        alert('Ingresa un nombre de rol valido.');
+        markInvalid(firstField(form, '[name="nombre"]'), 'Ingresa un nombre de rol valido.');
+        showMessage('Ingresa un nombre de rol valido.', 'error');
         return;
       }
       await submitJson('/api/roles', { codigo, nombre, descripcion, estado });
@@ -473,17 +535,21 @@ function bindForms() {
   document.getElementById('groupForm').onsubmit = async (event) => {
     event.preventDefault();
     try {
-      const formData = new FormData(event.currentTarget);
+      const form = event.currentTarget;
+      clearValidationState(form);
+      const formData = new FormData(form);
       const codigo = String(formData.get('codigo') || '').trim().toUpperCase();
       const nombre = String(formData.get('nombre') || '').trim();
       const descripcion = String(formData.get('descripcion') || '').trim();
       const estado = String(formData.get('estado') || 'ACTIVO').trim();
       if (!isValidCode(codigo)) {
-        alert('El codigo debe usar mayusculas, numeros o guion bajo.');
+        markInvalid(firstField(form, '[name="codigo"]'), 'El codigo debe usar mayusculas, numeros o guion bajo.');
+        showMessage('El codigo debe usar mayusculas, numeros o guion bajo.', 'error');
         return;
       }
       if (nombre.length < 2) {
-        alert('Ingresa un nombre de grupo valido.');
+        markInvalid(firstField(form, '[name="nombre"]'), 'Ingresa un nombre de grupo valido.');
+        showMessage('Ingresa un nombre de grupo valido.', 'error');
         return;
       }
       await submitJson('/api/grupos', { codigo, nombre, descripcion, estado });

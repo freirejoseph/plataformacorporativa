@@ -5,28 +5,33 @@
 
 ## Ya resuelto
 
-- `SKILL_Plataforma` ya obliga a sincronizar local y Ubuntu al cerrar cada cambio.
-- `core/` y `shared/` ya tienen base funcional para:
-  - autenticacion
-  - sesiones
-  - auditoria
+- `SKILL_Plataforma` centralizado en `docs/` como contrato global de la plataforma.
+- `docs/arquitectura/contrato-plataforma.md` ampliado con:
+  - formato ISO 8601 para fechas y horas
+  - estructura comun de error
+  - contrato minimo de entrada entre tableros
+- `docs/stack-tecnico.md` actualizado con:
+  - Alembic
+  - accesibilidad basica
+  - politica de assets locales
+- `apps/accesos-menues` reforzado con:
+  - endpoints de login/logout
+  - registro de inicio y fin de accesos
+  - CRUD y asignaciones
   - resolucion de permisos
-  - arbol de menus
-- `apps/accesos-menues` ya quedo operativo con:
-  - backend FastAPI con login, logout, CRUD, asignaciones y logs
-  - bootstrap de SQLite con migracion para bases viejas
-  - frontend principal del portal madre
-  - matriz de permisos y arbol de menus
-  - seed demo compatible con el login de prueba
-- `apps/portal-corporativo` ya lanza el subportal `accesos-menues`.
-- La validacion tecnica ya paso:
-  - `python -m py_compile`
-  - `pytest tests/test_accesos_menues.py`
-  - `node --check apps/portal-corporativo/app.js`
+  - auditoria y matriz de permisos
+- El frontend del portal madre ahora incorpora:
+  - `aria-live`
+  - tablas con semantica y `scope`
+  - estados `is-invalid`
+  - logos/avatares locales versionados en el repo
+- Se inicializo Alembic como base de migraciones versionadas.
+- `Portal Corporativo` lanza el subportal `accesos-menues`.
+- La validacion tecnica del portal madre ya paso.
 
 ## Pendiente real
 
-- Completar los `SKILL` funcionales y aprobados de los tableros de negocio que aun no tienen definicion final:
+- Definir por completo los `SKILL` de los tableros de negocio que aun no tienen reglas finales aprobadas:
   - `administracion-general`
   - `compras`
   - `cxc`
@@ -39,4 +44,4 @@
 
 ## Cierre
 
-La base transversal y el portal madre ya estan listos. Lo que sigue es definicion de negocio por tablero, no rearmar la plataforma comun.
+La base transversal ya esta cerrada. Lo que sigue depende de definicion funcional por dominio.

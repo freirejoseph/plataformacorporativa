@@ -5,20 +5,33 @@
 
 ## Ya resuelto
 
-- `SKILL_Plataforma` ya obliga a sincronizar local y Ubuntu al final de cada cambio.
-- La base comun `core/` + `shared/` ya esta lista para uso real.
-- `apps/accesos-menues` ya cuenta con:
-  - login y logout
+- `SKILL_Plataforma` ya vive centralizado en `docs/` y define el contrato comun de la plataforma.
+- `docs/arquitectura/contrato-plataforma.md` ahora explicita:
+  - ISO 8601 para fechas
+  - formato uniforme de error
+  - contrato minimo de contexto entre tableros
+- `docs/stack-tecnico.md` ya contempla:
+  - Alembic
+  - SQLAlchemy
+  - accesibilidad
+  - assets locales
+- `apps/accesos-menues` ya cubre:
+  - login/logout
+  - inicio y fin de accesos
   - CRUD de usuarios, roles, grupos y menus
-  - asignacion y desasignacion de roles y grupos
-  - auditoria y logs
-  - bootstrap de SQLite con migracion de esquema viejo
-- `apps/portal-corporativo` ya puede lanzar el subportal de accesos.
-- La validacion tecnica del portal madre ya paso.
+  - asignaciones y auditoria
+  - matriz de permisos
+- El frontend del portal madre ya fue reforzado con:
+  - `aria-live`
+  - tablas con `scope`
+  - clases de error `.is-invalid`
+  - logos y avatares locales
+- Se agrego la base de Alembic como migracion versionada.
+- `apps/portal-corporativo` ya lanza el subportal de accesos.
 
 ## Pendiente real
 
-- Definir por completo los `SKILL` de los tableros de negocio que aun no tienen reglas finales y aprobadas:
+- Definir por completo los `SKILL` funcionales y aprobados de los tableros de negocio que aun no tienen reglas finales:
   - `administracion-general`
   - `compras`
   - `cxc`
@@ -31,4 +44,4 @@
 
 ## Cierre
 
-La plataforma ya esta operativa en su capa compartida. Lo que resta es definicion funcional por dominio, no infraestructura comun.
+La capa comun ya quedo cerrada. El siguiente trabajo depende de reglas de negocio por dominio.

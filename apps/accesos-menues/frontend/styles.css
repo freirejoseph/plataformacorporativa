@@ -155,6 +155,13 @@ button {
   background: linear-gradient(180deg, rgba(11, 26, 43, 0.86), rgba(3, 9, 17, 0.6));
 }
 
+.PesaLogoImage {
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 18px rgba(20, 216, 255, 0.16));
+}
+
 .PesaOrbe {
   width: 72px;
   height: 72px;
@@ -853,6 +860,28 @@ button {
   padding: 0 12px;
 }
 
+.DialogField input:focus,
+.DialogField select:focus,
+.PanelSearchInput:focus,
+.PanelStateSelect:focus,
+.BuscadorGlobalAccesos:focus {
+  outline: 2px solid rgba(20, 216, 255, 0.35);
+  outline-offset: 1px;
+}
+
+.DialogField .is-invalid,
+.PanelSearchInput.is-invalid,
+.PanelStateSelect.is-invalid,
+.BuscadorGlobalAccesos.is-invalid {
+  border-color: rgba(255, 92, 92, 0.75);
+  box-shadow: 0 0 0 1px rgba(255, 92, 92, 0.24);
+}
+
+.FieldHint {
+  font-size: 11px;
+  color: #8fa5be;
+}
+
 .DialogActionsInline {
   display: flex;
   flex-wrap: wrap;
@@ -882,6 +911,7 @@ button {
 }
 .FormMessage.success { border-color: rgba(34, 197, 94, 0.4); }
 .FormMessage.error { border-color: rgba(239, 68, 68, 0.4); }
+.FormMessage[hidden] { display: none; }
 
 @media (max-width: 1600px) {
   .GridAccionesRapidas { grid-template-columns: repeat(4, minmax(0, 1fr)); }

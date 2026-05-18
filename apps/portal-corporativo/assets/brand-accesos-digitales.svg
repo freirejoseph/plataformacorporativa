@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 120" role="img" aria-labelledby="title desc">
+  <title id="title">Accesos Digitales</title>
+  <desc id="desc">Logotipo de accesos digitales con orbita y ejes.</desc>
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d7ff9"/>
+      <stop offset="100%" stop-color="#31d0aa"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="120" rx="24" fill="#f7fbff"/>
+  <circle cx="68" cy="50" r="36" fill="url(#g1)"/>
+  <circle cx="68" cy="50" r="18" fill="#f7fbff"/>
+  <path d="M40 50h56M68 22v56" stroke="#153d7d" stroke-width="4" stroke-linecap="round"/>
+  <text x="120" y="86" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#16334f">ACCESOS</text>
+  <text x="122" y="108" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#16334f">DIGITALES</text>
+</svg>
