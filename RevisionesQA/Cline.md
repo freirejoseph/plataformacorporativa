@@ -26,11 +26,13 @@
   - validacion visual con `.is-invalid`
   - recursos graficos locales
 - Alembic fue inicializado como base de migraciones.
-- El `Portal Corporativo` ya abre el subportal `accesos-menues`.
+- El `Portal Corporativo` ya abre el subportal de accesos y consume contexto de sesion para pintar accesos visibles, notificaciones y acciones rapidas.
 
 ## Pendiente real
 
-- Definir los `SKILL` funcionales de los tableros de negocio que aun no tienen alcance final:
+- Cerrar la persistencia completa de sesiones y el seguimiento de duracion extendida.
+- Completar el CRUD de opciones y modulos.
+- Definir los `SKILL` funcionales de los tableros de negocio que aun no estan cerrados:
   - `administracion-general`
   - `compras`
   - `cxc`
@@ -43,4 +45,4 @@
 
 ## Cierre
 
-La plataforma comun ya no tiene brechas abiertas de las observadas. Lo que queda es definicion de negocio por tablero.
+La plataforma comun ya no es el cuello de botella. El siguiente trabajo depende del cierre operativo de sesiones y de la definicion de negocio por tablero.

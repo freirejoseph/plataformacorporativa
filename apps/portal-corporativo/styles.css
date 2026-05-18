@@ -138,6 +138,46 @@ body {
   padding: 0 18px 18px;
 }
 
+.portal-notification,
+.portal-notification-info,
+.portal-notification-success {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(124, 177, 255, 0.1);
+  background: rgba(7, 18, 28, 0.5);
+}
+
+.portal-notification strong {
+  font-size: 14px;
+}
+
+.portal-notification span {
+  color: var(--pc-text-muted);
+  font-size: 12px;
+}
+
+.portal-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 8px 0 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(45, 127, 249, 0.16);
+  color: var(--pc-text);
+  font-size: 12px;
+}
+
+.portal-brand strong {
+  display: block;
+}
+
+.portal-brand span {
+  display: block;
+}
+
 .preview-status-stack div,
 .preview-tree .tree-node {
   display: flex;

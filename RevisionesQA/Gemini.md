@@ -27,10 +27,12 @@
   - clases de error `.is-invalid`
   - logos y avatares locales
 - Se agrego la base de Alembic como migracion versionada.
-- `apps/portal-corporativo` ya lanza el subportal de accesos.
+- `apps/portal-corporativo` ya lanza el subportal de accesos y consume contexto real de sesion.
 
 ## Pendiente real
 
+- Persistencia completa de sesiones con cierre y duracion extendida a nivel operativo.
+- Completar el CRUD de opciones y modulos.
 - Definir por completo los `SKILL` funcionales y aprobados de los tableros de negocio que aun no tienen reglas finales:
   - `administracion-general`
   - `compras`
@@ -44,4 +46,4 @@
 
 ## Cierre
 
-La capa comun ya quedo cerrada. El siguiente trabajo depende de reglas de negocio por dominio.
+La capa comun ya quedo cerrada. El siguiente trabajo depende de reglas de negocio por dominio y de completar el ciclo de sesiones.

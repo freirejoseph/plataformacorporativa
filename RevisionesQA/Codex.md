@@ -26,11 +26,18 @@
   - estados `is-invalid`
   - logos/avatares locales versionados en el repo
 - Se inicializo Alembic como base de migraciones versionadas.
-- `Portal Corporativo` lanza el subportal `accesos-menues`.
+- `Portal Corporativo` ahora consume contexto real del backend de accesos:
+  - session token
+  - usuario, roles y grupos
+  - accesos visibles por contexto
+  - notificaciones y acciones rapidas
+  - launch surface para `accesos-menues`
 - La validacion tecnica del portal madre ya paso.
 
 ## Pendiente real
 
+- Cerrar la persistencia completa de sesiones y el seguimiento extendido de duracion en pantalla/programa.
+- Completar el CRUD de opciones y modulos como dominio operativo final.
 - Definir por completo los `SKILL` de los tableros de negocio que aun no tienen reglas finales aprobadas:
   - `administracion-general`
   - `compras`
@@ -44,4 +51,4 @@
 
 ## Cierre
 
-La base transversal ya esta cerrada. Lo que sigue depende de definicion funcional por dominio.
+La base transversal ya esta cerrada. Lo que sigue depende de definicion funcional por dominio y del cierre operativo de sesiones/opciones.

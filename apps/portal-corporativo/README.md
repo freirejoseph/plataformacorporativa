@@ -3,7 +3,7 @@
 Landing portal for the platform.
 
 ## Purpose
-This portal is the user entry point for the platform. It exposes the corporate navigation surface and launches the first administrative subportal:
+This portal is the user entry point for the platform. It exposes the corporate navigation surface, reads the current session context, and launches the first administrative subportal:
 - `accesos-menues`
 
 ## What you can preview here
@@ -12,6 +12,8 @@ This portal is the user entry point for the platform. It exposes the corporate n
 - portal shortcuts
 - corporate document panels
 - the launch surface for `Usuarios y Accesos`
+- session-driven user, role and group context
+- dynamic notifications and quick actions
 
 ## Files
 - `index.html`
@@ -25,4 +27,3 @@ Example:
 ```powershell
 python -m http.server 5173
 ```
-

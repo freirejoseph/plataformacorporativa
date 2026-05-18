@@ -721,6 +721,11 @@ def logout(session: dict[str, Any] = Depends(session_from_header)) -> dict[str, 
     return {"status": "cerrado"}
 
 
+@app.get("/api/auth/session")
+def current_session(session: dict[str, Any] = Depends(session_from_header)) -> dict[str, Any]:
+    return session
+
+
 @app.get("/api/dashboard/resumen")
 def get_dashboard_summary() -> dict[str, int]:
     return dashboard_summary()
@@ -1097,6 +1102,51 @@ def portal_state() -> dict[str, Any]:
         "menus": len(list_menus()),
         "roles": len(list_roles()),
         "usuarios": len(list_users()),
+    }
+
+
+@app.get("/api/portal/contexto")
+def portal_context(session: dict[str, Any] = Depends(session_from_header)) -> dict[str, Any]:
+    user_id = int(session["usuario_id"])
+    user = validate_active_row(get_user_by_id(user_id), "Usuario")
+    roles = get_user_roles(user_id)
+    groups = get_user_groups(user_id)
+    menu_tree = list_menu_tree()
+    permissions = get_permissions_matrix()
+    resumen = dashboard_summary()
+    return {
+        "usuario": {
+            "id": user["id"],
+            "nombre": user["nombre"],
+            "correo": user["correo"],
+            "cargo": user["cargo"],
+            "estado": user["estado"],
+        },
+        "roles": roles,
+        "grupos": groups,
+        "portal_principal": pick_portal(roles),
+        "menu_arbol": menu_tree,
+        "permisos": permissions,
+        "resumen": resumen,
+        "estado": portal_state(),
+        "notificaciones": [
+            {
+                "titulo": "Permisos sincronizados",
+                "detalle": "El portal madre refleja tus roles y grupos actuales.",
+                "nivel": "success",
+            },
+            {
+                "titulo": "Acceso directo",
+                "detalle": "Usuarios y Accesos esta disponible como primer subportal.",
+                "nivel": "info",
+            },
+        ],
+        "acciones_rapidas": [
+            {"titulo": "Usuarios", "descripcion": "Gestion de cuentas"},
+            {"titulo": "Roles", "descripcion": "Perfiles autorizados"},
+            {"titulo": "Menus", "descripcion": "Navegacion corporativa"},
+            {"titulo": "Permisos", "descripcion": "Accesos por rol y grupo"},
+        ],
     }
 
 

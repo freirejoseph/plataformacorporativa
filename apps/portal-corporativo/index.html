@@ -25,22 +25,22 @@
           <a href="#">Recientes</a>
         </nav>
 
-        <div class="preview-launch-card">
-          <img class="preview-launch-logo" src="assets/brand-accesos-digitales.svg" alt="Accesos Digitales">
-          <p>Accesos Digitales</p>
-          <h3>Portal Corporativo</h3>
-          <span>Entrada principal a la plataforma</span>
-        </div>
-      </aside>
+          <div class="preview-launch-card">
+            <img class="preview-launch-logo" src="assets/brand-accesos-digitales.svg" alt="Accesos Digitales">
+            <p>Accesos Digitales</p>
+            <h3>Portal Corporativo</h3>
+            <span id="portalLaunchStatus">Entrada principal a la plataforma</span>
+          </div>
+        </aside>
 
       <section class="preview-content">
         <header class="portal-header">
           <div class="portal-brand">
             <img class="portal-brand-mark" src="assets/brand-portal-corporativo.svg" alt="Portal Corporativo">
-            <div class="portal-brand-title">
-              <strong>Portal Corporativo</strong>
-              <span>Tu centro de acceso a tableros y gestiones</span>
-            </div>
+          <div class="portal-brand-title">
+            <strong>Portal Corporativo</strong>
+            <span id="portalWelcome">Tu centro de acceso a tableros y gestiones</span>
+          </div>
           </div>
 
           <div class="portal-search">
@@ -51,7 +51,7 @@
             <img src="assets/avatar-joseph.svg" alt="Joseph, Gerente" />
             <div>
               <strong>Joseph</strong>
-              <span>Gerente</span>
+              <span id="sessionBadge">Gerente</span>
             </div>
           </div>
         </header>
@@ -61,7 +61,7 @@
             <article class="portal-kpi-card">
               <h4>Portales disponibles</h4>
               <div class="value">5</div>
-              <div class="meta">Accesos visibles segun permisos</div>
+              <div class="meta" id="sessionSummary">Accesos visibles segun permisos</div>
             </article>
             <article class="portal-kpi-card">
               <h4>Tableros activos</h4>
@@ -71,7 +71,7 @@
             <article class="portal-kpi-card">
               <h4>Sesiones activas</h4>
               <div class="value">37</div>
-              <div class="meta">Ultima actualizacion: ahora</div>
+              <div class="meta" id="sessionStatus">Ultima actualizacion: ahora</div>
             </article>
             <article class="portal-kpi-card">
               <h4>Accesos directos</h4>
@@ -98,7 +98,7 @@
                   <div class="portal-panel-subtitle">Punto de entrada del usuario</div>
                 </div>
               </div>
-              <div class="preview-module-grid">
+              <div class="preview-module-grid" id="portalModules">
                 <button class="preview-module primary" data-target="accesos-menues">
                   <strong>Usuarios y Accesos</strong>
                   <span>Subportal madre para administrar usuarios, roles, grupos y menues.</span>
@@ -133,7 +133,7 @@
                   <div class="portal-panel-subtitle">Accesos segun rol y grupo</div>
                 </div>
               </div>
-              <div class="portal-access-grid">
+              <div class="portal-access-grid" id="portalAccessList">
                 <div class="portal-access-item">
                   <div>
                     <strong>Dashboard Gerencial</strong>
@@ -172,7 +172,7 @@
                   <div class="portal-panel-subtitle">Servicios y conexiones</div>
                 </div>
               </div>
-              <div class="preview-status-stack">
+              <div class="preview-status-stack" id="portalStatusStack">
                 <div><strong>Portal Corporativo</strong><span>En linea</span></div>
                 <div><strong>accesos-menues</strong><span>En desarrollo</span></div>
                 <div><strong>Base de datos</strong><span>SQLite local</span></div>
@@ -184,7 +184,7 @@
           <section class="portal-bottom-grid preview-bottom-grid">
             <article class="portal-footer-card">
               <h3>Estructura de carpetas</h3>
-              <div class="preview-tree">
+              <div class="preview-tree" id="portalTree">
                 <div class="tree-node root">plataformacorporativa</div>
                 <div class="tree-node">docs</div>
                 <div class="tree-node indent">SKILLS_INDEX.md</div>
@@ -198,7 +198,7 @@
 
             <article class="portal-footer-card">
               <h3>Acciones rapidas</h3>
-              <div class="portal-actions preview-actions">
+              <div class="portal-actions preview-actions" id="portalQuickActions">
                 <button class="portal-action">Usuarios</button>
                 <button class="portal-action">Roles</button>
                 <button class="portal-action">Menus</button>
