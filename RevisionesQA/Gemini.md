@@ -15,6 +15,7 @@
   - SQLAlchemy
   - accesibilidad
   - assets locales
+  - exportacion estatica de OpenAPI
 - `apps/accesos-menues` ya cubre:
   - login/logout
   - inicio y fin de accesos
@@ -24,6 +25,7 @@
   - CRUD de modulos y opciones
   - persistencia de sesiones con token
   - duracion de accesos calculada al cierre
+  - TTL configurable y rotacion de sesiones al autenticar nuevamente
 - El frontend del portal madre ya fue reforzado con:
   - `aria-live`
   - tablas con `scope`
@@ -31,9 +33,11 @@
   - logos y avatares locales
 - Se agrego la base de Alembic como migracion versionada.
 - `apps/portal-corporativo` ya lanza el subportal de accesos y consume contexto real de sesion.
+- La exportacion estatica de OpenAPI ya queda disponible en `docs/openapi.json`.
 
 ## Pendiente real
 
+- Validar en una etapa futura la capa de SQL Server corporativa si el despliegue productivo la requiere.
 - Definir por completo los `SKILL` funcionales y aprobados de los tableros de negocio que aun no tienen reglas finales:
   - `administracion-general`
   - `compras`

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Iterable
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Annotated, Optional
 import sqlite3
@@ -122,23 +122,31 @@ async def add_security_headers(request, call_next):  # type: ignore[no-untyped-d
 
 
 def now_iso() -> str:
-    return datetime.now().replace(microsecond=0).isoformat(sep=" ")
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
 def now_date() -> str:
-    return datetime.now().date().isoformat()
+    return datetime.now(timezone.utc).date().isoformat()
 
 
 def now_time() -> str:
-    return datetime.now().replace(microsecond=0).time().isoformat(timespec="seconds")
+    return datetime.now(timezone.utc).replace(microsecond=0).time().isoformat(timespec="seconds")
 
 
 def parse_time_reference(value: str | None, fallback_date: str | None = None) -> datetime:
     reference_date = fallback_date or now_date()
     candidate = (value or "").strip()
     if not candidate:
-        return datetime.now().replace(microsecond=0)
-    for pattern in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%dT%H:%M:%S", "%H:%M:%S"):
+        return datetime.now(timezone.utc).replace(microsecond=0)
+    normalized = candidate.replace("Z", "+00:00")
+    try:
+        parsed = datetime.fromisoformat(normalized)
+        if parsed.tzinfo is None:
+            return parsed
+        return parsed.astimezone(timezone.utc).replace(tzinfo=None)
+    except ValueError:
+        pass
+    for pattern in ("%Y-%m-%d %H:%M:%S", "%H:%M:%S"):
         try:
             if pattern == "%H:%M:%S":
                 combined = f"{reference_date} {candidate}"
@@ -146,7 +154,38 @@ def parse_time_reference(value: str | None, fallback_date: str | None = None) ->
             return datetime.strptime(candidate, pattern)
         except ValueError:
             continue
-    return datetime.now().replace(microsecond=0)
+    return datetime.now(timezone.utc).replace(microsecond=0)
+
+
+def session_ttl() -> timedelta:
+    hours = max(int(getattr(SETTINGS, "session_ttl_hours", 8)), 1)
+    return timedelta(hours=hours)
+
+
+def session_expires_at(session_row: dict[str, Any]) -> datetime:
+    started = parse_time_reference(str(session_row.get("inicio") or now_iso()))
+    return started + session_ttl()
+
+
+def is_session_expired(session_row: dict[str, Any]) -> bool:
+    estado = normalize_estado(session_row.get("estado"), "ACTIVA")
+    if estado != "ACTIVA":
+        return True
+    return datetime.now(timezone.utc).replace(tzinfo=None) >= session_expires_at(session_row)
+
+
+def expire_session(token: str, session_row: dict[str, Any]) -> None:
+    if not token:
+        return
+    execute(
+        """
+        UPDATE sesiones
+        SET fin = ?, estado = 'EXPIRADA'
+        WHERE token = ? AND estado = 'ACTIVA'
+        """,
+        (now_iso(), token),
+    )
+    SESSION_CACHE.pop(token, None)
 
 
 def open_db() -> sqlite3.Connection:
@@ -783,6 +822,9 @@ def session_from_header(
     if session is None:
         session_row = get_session_by_token(token)
         if session_row and normalize_estado(session_row.get("estado"), "ACTIVA") == "ACTIVA":
+            if is_session_expired(session_row):
+                expire_session(token, session_row)
+                raise HTTPException(status_code=401, detail="Sesion expirada. Vuelve a iniciar sesion.")
             session = {
                 "token": token,
                 "usuario_id": int(session_row["usuario_id"]),
@@ -797,6 +839,26 @@ def session_from_header(
     if session is None:
         raise HTTPException(status_code=401, detail="Sesion invalida o expirada.")
     return session
+
+
+def close_existing_sessions(usuario_id: int, keep_token: str | None = None) -> None:
+    active_sessions = fetch_all(
+        "SELECT token FROM sesiones WHERE usuario_id = ? AND estado = 'ACTIVA'",
+        (usuario_id,),
+    )
+    for row in active_sessions:
+        token = str(row.get("token") or "").strip()
+        if not token or token == keep_token:
+            continue
+        execute(
+            """
+            UPDATE sesiones
+            SET fin = ?, estado = 'CERRADA'
+            WHERE token = ? AND estado = 'ACTIVA'
+            """,
+            (now_iso(), token),
+        )
+        SESSION_CACHE.pop(token, None)
 
 
 def unique_email_exists(correo: str, usuario_id: int | None = None) -> bool:
@@ -897,9 +959,11 @@ def login(payload: LoginPayload) -> dict[str, Any]:
     if not verify_password(payload.password, password_hash):
         raise HTTPException(status_code=401, detail="Credenciales invalidas.")
 
+    close_existing_sessions(int(user["id"]))
     token = generate_token()
     roles = get_user_roles(int(user["id"]))
     groups = get_user_groups(int(user["id"]))
+    started_at = now_iso()
     session_payload = {
         "token": token,
         "usuario_id": int(user["id"]),
@@ -907,7 +971,7 @@ def login(payload: LoginPayload) -> dict[str, Any]:
         "correo": user["correo"],
         "roles": [role["nombre"] for role in roles],
         "grupos": [group["nombre"] for group in groups],
-        "inicio": now_iso(),
+        "inicio": started_at,
         "estado": "ACTIVA",
     }
     SESSION_CACHE[token] = session_payload
@@ -916,11 +980,11 @@ def login(payload: LoginPayload) -> dict[str, Any]:
         INSERT INTO sesiones (token, usuario_id, inicio, fin, estado, ip, equipo, navegador)
         VALUES (?, ?, ?, NULL, 'ACTIVA', ?, ?, ?)
         """,
-        (token, user["id"], now_iso(), None, None, None),
+        (token, user["id"], started_at, None, None, None),
     )
     execute(
         "UPDATE usuarios SET ultimo_acceso = ? WHERE id = ?",
-        (now_iso(), user["id"]),
+        (started_at, user["id"]),
     )
     add_activity(int(user["id"]), "Inicio de sesion", "Inicio de sesion exitoso")
     add_access_log(
@@ -1443,6 +1507,7 @@ def get_active_sessions() -> list[dict[str, Any]]:
 @app.post("/api/sesiones/{sesion_id}/cerrar")
 def close_session(sesion_id: int, session: dict[str, Any] = Depends(session_from_header)) -> dict[str, str]:
     target = validate_active_row(fetch_one("SELECT id, token FROM sesiones WHERE id = ?", (sesion_id,)), "Sesion")
+    token = str(target.get("token") or "").strip()
     execute(
         """
         UPDATE sesiones
@@ -1451,7 +1516,6 @@ def close_session(sesion_id: int, session: dict[str, Any] = Depends(session_from
         """,
         (now_iso(), sesion_id),
     )
-    token = target.get("token")
     if token:
         SESSION_CACHE.pop(token, None)
     add_activity(session["usuario_id"], "Cierre de sesion", f"Sesion {sesion_id} cerrada")

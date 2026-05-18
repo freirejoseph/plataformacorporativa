@@ -10,6 +10,7 @@ Este es el stack base del modulo madre `accesos-menues`.
 - SQLAlchemy
 - Alembic
 - python-dotenv
+- Exportacion estandar de OpenAPI para stakeholders y validacion tecnica
 
 ## Base de datos
 - SQLite para desarrollo local
@@ -29,3 +30,4 @@ Este es el stack base del modulo madre `accesos-menues`.
 - El backend lee configuracion desde `.env`
 - El tablero madre administra usuarios, roles, grupos, menus y permisos
 - Los demas tableros heredan el contexto de acceso desde este modulo
+- Las sesiones tienen TTL configurable y se rotan al iniciar una nueva autenticacion del mismo usuario
