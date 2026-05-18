@@ -1,6 +1,6 @@
 # Revision de Codigo y Arquitectura - Agente: Codex
 
-**Fecha:** 2026-05-17  
+**Fecha:** 2026-05-18  
 **Proyecto:** Plataforma Corporativa
 
 ## Ya resuelto
@@ -26,7 +26,7 @@
 
 ## Pendiente real
 
-- Completar los `SKILL` funcionales de los tableros de negocio que aun no tienen definicion final:
+- Completar los `SKILL` funcionales y aprobados de los tableros de negocio que aun no tienen definicion final:
   - `administracion-general`
   - `compras`
   - `cxc`

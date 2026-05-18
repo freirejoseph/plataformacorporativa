@@ -1,6 +1,6 @@
 # Revision de Codigo y Arquitectura - Agente: Gemini Code Assist
 
-**Fecha:** 2026-05-17  
+**Fecha:** 2026-05-18  
 **Proyecto:** Plataforma Corporativa
 
 ## Ya resuelto
@@ -18,7 +18,7 @@
 
 ## Pendiente real
 
-- Definir por completo los `SKILL` de los tableros de negocio que aun no tienen reglas finales:
+- Definir por completo los `SKILL` de los tableros de negocio que aun no tienen reglas finales y aprobadas:
   - `administracion-general`
   - `compras`
   - `cxc`
