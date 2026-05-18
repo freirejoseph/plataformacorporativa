@@ -19,6 +19,9 @@
   - inicio y cierre de accesos
   - CRUD de usuarios, roles, grupos y menus
   - asignacion y retiro de roles y grupos
+  - CRUD de modulos y opciones
+  - persistencia de sesiones con token
+  - duracion de accesos calculada al cierre
   - auditoria y permisos
 - El frontend del portal madre ya cuenta con:
   - `aria-live`
@@ -30,8 +33,6 @@
 
 ## Pendiente real
 
-- Cerrar la persistencia completa de sesiones y el seguimiento de duracion extendida.
-- Completar el CRUD de opciones y modulos.
 - Definir los `SKILL` funcionales de los tableros de negocio que aun no estan cerrados:
   - `administracion-general`
   - `compras`

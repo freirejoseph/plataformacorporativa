@@ -73,6 +73,10 @@ CREATE TABLE IF NOT EXISTS menus (
   nombre TEXT NOT NULL,
   icono TEXT,
   orden INTEGER DEFAULT 0,
+  url TEXT,
+  componente TEXT,
+  abre_nueva_pestana INTEGER DEFAULT 0,
+  requiere_log INTEGER DEFAULT 1,
   estado TEXT NOT NULL DEFAULT 'ACTIVO',
   FOREIGN KEY (portal_id) REFERENCES portales(id) ON DELETE SET NULL,
   FOREIGN KEY (modulo_id) REFERENCES modulos(id) ON DELETE SET NULL,
@@ -146,6 +150,7 @@ CREATE TABLE IF NOT EXISTS log_accesos (
 
 CREATE TABLE IF NOT EXISTS sesiones (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
+  token TEXT UNIQUE,
   usuario_id INTEGER NOT NULL,
   inicio TEXT NOT NULL,
   fin TEXT,
@@ -171,3 +176,4 @@ CREATE INDEX IF NOT EXISTS idx_log_actividad_fecha_hora ON log_actividad(fecha_h
 CREATE INDEX IF NOT EXISTS idx_usuarios_roles_rol_id ON usuarios_roles(rol_id);
 CREATE INDEX IF NOT EXISTS idx_usuarios_grupos_grupo_id ON usuarios_grupos(grupo_id);
 CREATE INDEX IF NOT EXISTS idx_sesiones_usuario_id ON sesiones(usuario_id);
+CREATE INDEX IF NOT EXISTS idx_sesiones_token ON sesiones(token);

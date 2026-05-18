@@ -18,6 +18,9 @@
   - endpoints de login/logout
   - registro de inicio y fin de accesos
   - CRUD y asignaciones
+  - CRUD de modulos y opciones
+  - persistencia de sesiones con token
+  - duracion de accesos calculada al cierre
   - resolucion de permisos
   - auditoria y matriz de permisos
 - El frontend del portal madre ahora incorpora:
@@ -36,8 +39,6 @@
 
 ## Pendiente real
 
-- Cerrar la persistencia completa de sesiones y el seguimiento extendido de duracion en pantalla/programa.
-- Completar el CRUD de opciones y modulos como dominio operativo final.
 - Definir por completo los `SKILL` de los tableros de negocio que aun no tienen reglas finales aprobadas:
   - `administracion-general`
   - `compras`

@@ -21,6 +21,9 @@
   - CRUD de usuarios, roles, grupos y menus
   - asignaciones y auditoria
   - matriz de permisos
+  - CRUD de modulos y opciones
+  - persistencia de sesiones con token
+  - duracion de accesos calculada al cierre
 - El frontend del portal madre ya fue reforzado con:
   - `aria-live`
   - tablas con `scope`
@@ -31,8 +34,6 @@
 
 ## Pendiente real
 
-- Persistencia completa de sesiones con cierre y duracion extendida a nivel operativo.
-- Completar el CRUD de opciones y modulos.
 - Definir por completo los `SKILL` funcionales y aprobados de los tableros de negocio que aun no tienen reglas finales:
   - `administracion-general`
   - `compras`
