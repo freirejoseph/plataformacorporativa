@@ -15,6 +15,7 @@ class PlatformSettings:
     db_url: str = "sqlite:///./data/app.db"
     usuario_sistema: str = ""
     cors_origins: str = "*"
+    session_ttl_hours: int = 8
 
 
 def load_settings(root_dir: Path | None = None) -> PlatformSettings:
@@ -28,4 +29,5 @@ def load_settings(root_dir: Path | None = None) -> PlatformSettings:
         db_url=str(values.get("DB_URL", "sqlite:///./data/app.db")),
         usuario_sistema=str(values.get("USUARIO_SISTEMA", "")),
         cors_origins=str(values.get("CORS_ORIGINS", "*")),
+        session_ttl_hours=int(values.get("SESSION_TTL_HOURS", 8)),
     )
