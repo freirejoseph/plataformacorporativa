@@ -14,6 +14,7 @@
   - Alembic
   - accesibilidad
   - assets locales
+  - exportacion estatica de OpenAPI
 - `apps/accesos-menues` ya quedo funcional con:
   - login/logout
   - inicio y cierre de accesos
@@ -22,6 +23,7 @@
   - CRUD de modulos y opciones
   - persistencia de sesiones con token
   - duracion de accesos calculada al cierre
+  - TTL configurable y rotacion de sesiones al autenticar nuevamente
   - auditoria y permisos
 - El frontend del portal madre ya cuenta con:
   - `aria-live`
@@ -30,9 +32,11 @@
   - recursos graficos locales
 - Alembic fue inicializado como base de migraciones.
 - El `Portal Corporativo` ya abre el subportal de accesos y consume contexto de sesion para pintar accesos visibles, notificaciones y acciones rapidas.
+- La exportacion estatica de OpenAPI ya esta disponible en `docs/openapi.json`.
 
 ## Pendiente real
 
+- Validar en una etapa futura la capa de SQL Server corporativa si el despliegue productivo la requiere.
 - Definir los `SKILL` funcionales de los tableros de negocio que aun no estan cerrados:
   - `administracion-general`
   - `compras`
@@ -46,4 +50,4 @@
 
 ## Cierre
 
-La plataforma comun ya no es el cuello de botella. El siguiente trabajo depende del cierre operativo de sesiones y de la definicion de negocio por tablero.
+La plataforma comun ya no es el cuello de botella. El siguiente trabajo depende de la capa de SQL Server futura y de la definicion de negocio por tablero.

@@ -14,6 +14,7 @@
   - Alembic
   - accesibilidad basica
   - politica de assets locales
+  - exportacion estatica de OpenAPI
 - `apps/accesos-menues` reforzado con:
   - endpoints de login/logout
   - registro de inicio y fin de accesos
@@ -21,6 +22,7 @@
   - CRUD de modulos y opciones
   - persistencia de sesiones con token
   - duracion de accesos calculada al cierre
+  - TTL configurable y rotacion de sesiones al autenticar nuevamente
   - resolucion de permisos
   - auditoria y matriz de permisos
 - El frontend del portal madre ahora incorpora:
@@ -35,10 +37,12 @@
   - accesos visibles por contexto
   - notificaciones y acciones rapidas
   - launch surface para `accesos-menues`
+- La exportacion estatica de OpenAPI ya queda disponible en `docs/openapi.json`.
 - La validacion tecnica del portal madre ya paso.
 
 ## Pendiente real
 
+- Validar en una etapa futura la capa de SQL Server corporativa si el despliegue productivo la requiere.
 - Definir por completo los `SKILL` de los tableros de negocio que aun no tienen reglas finales aprobadas:
   - `administracion-general`
   - `compras`
@@ -52,4 +56,4 @@
 
 ## Cierre
 
-La base transversal ya esta cerrada. Lo que sigue depende de definicion funcional por dominio y del cierre operativo de sesiones/opciones.
+La base transversal ya esta cerrada. Lo que sigue depende de la capa de SQL Server futura y de definicion funcional por dominio.
