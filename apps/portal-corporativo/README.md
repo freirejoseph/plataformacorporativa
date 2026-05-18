@@ -1,4 +1,4 @@
-# Portal Corporativo
+# Plataforma Corporativa
 
 Landing portal for the platform.
 

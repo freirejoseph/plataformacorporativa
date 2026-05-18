@@ -389,19 +389,19 @@ SESSION_CACHE: dict[str, dict[str, Any]] = {}
 
 ROLE_PORTAL_PRIORITY = {
     "SUPER_ADMIN": "SYSPRO ERP",
-    "ADMIN": "Portal Corporativo",
-    "GERENTE": "Portal Corporativo",
+    "ADMIN": "Plataforma Corporativa",
+    "GERENTE": "Plataforma Corporativa",
     "CONTADOR": "Odoo RRHH",
-    "BASICO": "Portal Corporativo",
+    "BASICO": "Plataforma Corporativa",
     "INVITADO": "Portal Reportes",
 }
 
 ROLE_NAME_PRIORITY = {
     "Super Administrador": "SYSPRO ERP",
-    "Administrador": "Portal Corporativo",
-    "Gerente": "Portal Corporativo",
+    "Administrador": "Plataforma Corporativa",
+    "Gerente": "Plataforma Corporativa",
     "Contador": "Odoo RRHH",
-    "Usuario Basico": "Portal Corporativo",
+    "Usuario Basico": "Plataforma Corporativa",
     "Invitado": "Portal Reportes",
 }
 
@@ -453,12 +453,12 @@ def get_user_groups(usuario_id: int) -> list[dict[str, Any]]:
 
 def pick_portal(roles: list[dict[str, Any]]) -> str:
     if not roles:
-        return "Accesos y Menues"
+        return "Plataforma Corporativa"
     for role in roles:
         portal = ROLE_PORTAL_PRIORITY.get(role["codigo"], ROLE_NAME_PRIORITY.get(role["nombre"]))
         if portal:
             return portal
-    return "Accesos y Menues"
+    return "Plataforma Corporativa"
 
 
 def build_user_row(row: dict[str, Any]) -> dict[str, Any]:
@@ -1580,7 +1580,7 @@ def register_access_end(payload: LogAccessPayload) -> dict[str, Any]:
 @app.get("/api/portal/estado")
 def portal_state() -> dict[str, Any]:
     return {
-        "portal": "Portal Corporativo",
+        "portal": "Plataforma Corporativa",
         "subportal": "Accesos Menues",
         "raiz": str(ROOT_DIR),
         "frontend": str(FRONTEND_DIR),
@@ -1610,7 +1610,7 @@ def portal_context(session: dict[str, Any] = Depends(session_from_header)) -> di
         },
         "roles": roles,
         "grupos": groups,
-        "portal_principal": pick_portal(roles),
+        "portal_principal": "Plataforma Corporativa",
         "menu_arbol": menu_tree,
         "permisos": permissions,
         "resumen": resumen,

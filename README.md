@@ -4,7 +4,7 @@ Repositorio madre de la plataforma corporativa para el ecosistema de portales y 
 
 ## Proposito
 Esta base organiza el desarrollo de:
-- `Portal Corporativo`: punto de entrada visual para usuarios.
+- `Plataforma Corporativa`: punto de entrada visual para usuarios.
 - `accesos-menues`: subportal madre de administracion de usuarios, roles, grupos, menus y permisos.
 - futuros tableros de negocio: compras, inventario, produccion, finanzas, CxC, CxP, reportes, RRHH y otros.
 
@@ -20,8 +20,8 @@ Esta base organiza el desarrollo de:
 ## Fuentes de verdad
 Todos los `SKILL` del proyecto viven en `docs/`:
 - [Indice de skills](docs/SKILLS_INDEX.md)
-- [Portal Corporativo](docs/SKILLPortalCorporativo.md)
-- [Portal Corporativo CSS](docs/SKILLPortalCorporativo.css)
+- [Plataforma Corporativa](docs/SKILLPortalCorporativo.md)
+- [Plataforma Corporativa CSS](docs/SKILLPortalCorporativo.css)
 - [accesos-menues](docs/SKILL_accesos-menues.md)
 - [accesos-menues CSS](docs/SKILL_accesos-menues.css)
 - [Stack tecnico](docs/stack-tecnico.md)
@@ -48,7 +48,7 @@ python .\infra\scripts\sync_and_publish.py --watch --interval 60 --push
 La version PowerShell esta en:
 - `infra/scripts/sync_and_publish.ps1`
 
-## Probar el Portal Corporativo
+## Probar la Plataforma Corporativa
 La vista inicial del portal se puede probar abriendo:
 - `apps/portal-corporativo/index.html`
 

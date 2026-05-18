@@ -50,7 +50,7 @@ function renderStaticFallback() {
   setText(sessionBadge, "Sin sesion activa");
   setText(sessionSummary, "Ingresa desde Usuarios y Accesos para ver tu contexto real.");
   setText(sessionStatus, "Pendiente de autenticar");
-  setText(launchStatus, "Usuarios y Accesos sera el primer subportal autorizado.");
+  setText(launchStatus, "Plataforma Corporativa sera el primer punto de acceso.");
 }
 
 function renderDynamicContext(context) {
@@ -68,7 +68,7 @@ function renderDynamicContext(context) {
   setText(sessionBadge, `${usuario.cargo || "Usuario"} activo`);
   setText(sessionSummary, `${usuario.correo || ""} · ${usuario.estado || ""}`);
   setText(sessionStatus, `${roles.length} rol(es) · ${grupos.length} grupo(s)`);
-  setText(launchStatus, `Portal principal: ${context?.portal_principal || "Portal Corporativo"}`);
+  setText(launchStatus, `Portal principal: ${context?.portal_principal || "Plataforma Corporativa"}`);
 
   if (modulesGrid) {
     const moduleCards = [
@@ -161,7 +161,7 @@ function renderDynamicContext(context) {
 
   if (statusStack) {
     const statusRows = [
-      ["Portal Corporativo", estado?.portal ? "En linea" : "Pendiente"],
+      ["Plataforma Corporativa", estado?.portal ? "En linea" : "Pendiente"],
       ["accesos-menues", "Disponible"],
       ["Base de datos", "SQLite local"],
       ["Sincronizacion", "Local + Ubuntu + GitHub"],
